@@ -3,8 +3,9 @@ App = Ember.Application.create({});
 App.Router.map(function() {
   this.resource('auth');
   this.resource('dashboard');
+  this.resource('staffs');
   this.resource('staff');
-  this.resource('employee');
+  this.resource('comments');
 });
 
 var employees = [

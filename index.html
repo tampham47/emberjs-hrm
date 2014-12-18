@@ -23,8 +23,9 @@
               <ul class="nav navbar-nav">
                 <li>{{#link-to "auth"}}Auth{{/link-to}}</li>
                 <li>{{#link-to "dashboard"}}Dashboard{{/link-to}}</li>
-                <li>{{#link-to "staff"}}Staff{{/link-to}}</li>
-                <li>{{#link-to "employee"}}Information{{/link-to}}</li>
+                <li>{{#link-to "staffs"}}Staff{{/link-to}}</li>
+                <li>{{#link-to "staff"}}Information{{/link-to}}</li>
+                <li>{{#link-to "comments"}}Comments{{/link-to}}</li>
               </ul>
           </nav>
         </div>
@@ -73,11 +74,48 @@
     <p>dashboard</p>
   </script>
 
-  <script id="staff" type="text/x-handlebars">
-    <p>staff</p>
+  <script id="staffs" type="text/x-handlebars">
+    <div class='col-md-6 col-md-offset-3'>
+      <form class="form-horizontal">
+        <fieldset>
+
+        <legend>Form Name</legend>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="fullName">Name</label>
+          <div class="col-md-8">
+          <input id="fullName" name="fullName" type="text" placeholder="Search Name" class="form-control input-md">
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="department">Department</label>
+          <div class="col-md-8">
+            <select id="department" name="department" class="form-control">
+              <option value="Frontend">Frontend</option>
+              <option value="QC">QC</option>
+              <option value="php">php</option>
+              <option value="Java">Java</option>
+              <option value="Mobile">Mobile</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="apply"></label>
+          <div class="col-md-4">
+            <button id="apply" name="apply" class="btn btn-success">apply</button>
+          </div>
+        </div>
+
+        </fieldset>
+        </form>
+    </div>
   </script>
 
-  <script id="employee" type="text/x-handlebars">
+  <script id="staff" type="text/x-handlebars">
     <div class="row">
       <div class='col-md-6'>
         <form class="form-horizontal">
@@ -178,6 +216,31 @@
         <p>Avatar here</p>
       </div>
     </div>
+  </script>
+
+  <script id="comments" type="text/x-handlebars">
+    <form class="form-horizontal">
+      <fieldset>
+
+      <legend>Coments</legend>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="comment"></label>
+        <div class="col-md-4">
+          <textarea class="form-control" id="comment" name="comment">comments</textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="post"></label>
+        <div class="col-md-4">
+          <button id="post" name="post" class="btn btn-success">Add comment</button>
+        </div>
+      </div>
+
+      </fieldset>
+      </form>
+
   </script>
 
   <script src="js/libs/jquery-v1.11.1.js"></script>
