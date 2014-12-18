@@ -4,7 +4,34 @@ App.Router.map(function() {
   this.resource('auth');
   this.resource('dashboard');
   this.resource('staff');
+  this.resource('employee');
 });
+
+var employees = [
+  {
+    id: '1',
+    fullName: '',
+    dateOfBirth: '',
+    gender: '',
+    address: '',
+    mobile: '',
+    skype: '',
+    email: '',
+    joinedDate: '',
+    avatar: '',
+    department: ''
+  }
+];
+
+var comments = [
+  {
+    staffId: '',
+    employeeId: '',
+    dateCreated: '',
+    comment: ''
+  }
+];
+
 
 // var posts = [{
 //   id: '1',
