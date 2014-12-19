@@ -26,7 +26,7 @@ var staffs = [
 
 var comments = [
   {
-    id: '',
+    id: '1',
     creatorId: '',
     staffId: '',
     dateCreated: '',
@@ -34,6 +34,78 @@ var comments = [
   }
 ];
 
+var departmentList = [
+  { id: '1', name: 'Front-end' },
+  { id: '2', name: 'PHP' },
+  { id: '3', name: 'Java' },
+  { id: '4', name: 'QC' },
+  { id: '5', name: 'Mobile' },
+  { id: '6', name: 'Admin' }
+];
+
+// class controll business function for staff object
+var BStaff = function() {
+  this.context = staffs;
+  this.getAll = function() {
+    return this.context;
+  };
+
+  this.getById = function(id) {
+    return this.context;
+  };
+
+  this.addNew = function(newItem) {
+    this.context.push(newItem);
+    return true;
+  };
+
+  this.update = function(id, data) {
+    return true;
+  };
+
+  this.delete = function(id) {
+    return true;
+  };
+};
+
+// class controll business function for comment object
+var BComment = function() {
+  this.context = comments;
+  this.getAll = function() {
+    return this.context;
+  };
+
+  this.getById = function(id) {
+    return this.context;
+  };
+
+  this.addNew = function(newItem) {
+    this.context.push(newItem);
+    return true;
+  };
+
+  this.update = function(id, data) {
+    return true;
+  };
+
+  this.delete = function(id) {
+    return true;
+  };
+};
+
+var BDepartment = function() {
+  this.getAll = function() {
+    return departmentList;
+  }
+};
+
+var bComment = new BComment();
+var bStaff = new BStaff();
+var bDepartment = new BDepartment();
+
+console.log('BComment', bComment.getAll());
+console.log('BStaff', bStaff.getAll());
+console.log('BDepartment', bDepartment.getAll());
 
 // var posts = [{
 //   id: '1',
