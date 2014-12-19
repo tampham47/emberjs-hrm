@@ -8,7 +8,7 @@ App.Router.map(function() {
   this.resource('comments');
 });
 
-var employees = [
+var staffs = [
   {
     id: '1',
     fullName: '',
@@ -26,8 +26,9 @@ var employees = [
 
 var comments = [
   {
+    id: '',
+    creatorId: '',
     staffId: '',
-    employeeId: '',
     dateCreated: '',
     comment: ''
   }
