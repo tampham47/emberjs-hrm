@@ -1,4 +1,4 @@
-HUMAN RESOURCES MANAGEMENT
+Emberjs-HRM
 ===========
 
 The first project for reach to emberjs & handlebars, this project was forked from the starter kit at http://emberjs.com/.
