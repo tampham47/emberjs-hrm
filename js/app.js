@@ -3,24 +3,38 @@ App = Ember.Application.create({});
 App.Router.map(function() {
   this.resource('auth');
   this.resource('dashboard');
-  this.resource('staffs');
-  this.resource('staff');
+  this.resource('staffs', function() {
+    this.resource('staff', {path: ':staff_id'});
+  });
   this.resource('comments');
 });
 
 var staffs = [
   {
     id: '1',
-    fullName: '',
-    dateOfBirth: '',
-    gender: '',
-    address: '',
-    mobile: '',
-    skype: '',
-    email: '',
-    joinedDate: '',
-    avatar: '',
-    department: ''
+    fullName: 'Tâm Phạm',
+    dateOfBirth: '01/01/1990',
+    gender: 'Male',
+    address: '103 D1, Phường 25, Quận Bình Thạnh, Sài Gòn',
+    mobile: '01643652922',
+    skype: 'tampham47',
+    email: 'tampham47@live.com',
+    joinedDate: '01/09/2014',
+    avatar: 'tampham47.jpg',
+    department: 'Front-end'
+  },
+  {
+    id: '2',
+    fullName: 'Soa Nguyễn',
+    dateOfBirth: '05/11/1990',
+    gender: 'Male',
+    address: '103 D1, Phường 25, Quận Bình Thạnh, Sài Gòn',
+    mobile: '01643652922',
+    skype: 'soanguyen69',
+    email: 'soanguyen69@live.com',
+    joinedDate: '01/09/2014',
+    avatar: 'soanguyen69.jpg',
+    department: 'Front-end'
   }
 ];
 
@@ -28,9 +42,16 @@ var comments = [
   {
     id: '1',
     creatorId: '',
-    staffId: '',
-    dateCreated: '',
-    comment: ''
+    staffId: '1',
+    dateCreated: '19/12/2014',
+    comment: 'Thằng này khá'
+  },
+  {
+    id: '2',
+    creatorId: '',
+    staffId: '2',
+    dateCreated: '19/12/2014',
+    comment: 'Con này được'
   }
 ];
 
@@ -44,7 +65,7 @@ var departmentList = [
 ];
 
 // class controll business function for staff object
-var BStaff = function() {
+var BLStaff = function() {
   this.context = staffs;
   this.getAll = function() {
     return this.context;
@@ -69,7 +90,7 @@ var BStaff = function() {
 };
 
 // class controll business function for comment object
-var BComment = function() {
+var BLComment = function() {
   this.context = comments;
   this.getAll = function() {
     return this.context;
@@ -93,41 +114,38 @@ var BComment = function() {
   };
 };
 
-var BDepartment = function() {
+var BLDepartment = function() {
   this.getAll = function() {
     return departmentList;
   }
 };
 
-var bComment = new BComment();
-var bStaff = new BStaff();
-var bDepartment = new BDepartment();
+var blComment = new BLComment();
+var blStaff = new BLStaff();
+var blDepartment = new BLDepartment();
 
-console.log('BComment', bComment.getAll());
-console.log('BStaff', bStaff.getAll());
-console.log('BDepartment', bDepartment.getAll());
+console.log('BLComment', blComment.getAll());
+console.log('BLStaff', blStaff.getAll());
+console.log('BlDepartment', blDepartment.getAll());
 
-// var posts = [{
-//   id: '1',
-//   title: "Rails is Omakase",
-//   author: { name: "d2h" },
-//   date: new Date('12-27-2012'),
-//   excerpt: "There are lots of à la carte software environments in this world. Places where in order to eat, you must first carefully look over the menu of options to order exactly what you want.",
-//   body: "I want this for my ORM, I want that for my template language, and let's finish it off with this routing library. Of course, you're going to have to know what you want, and you'll rarely have your horizon expanded if you always order the same thing, but there it is. It's a very popular way of consuming software.\n\nRails is not that. Rails is omakase."
-// }, {
-//   id: '2',
-//   title: "The Parley Letter",
-//   author: { name: "d2h" },
-//   date: new Date('12-24-2012'),
-//   excerpt: "My [appearance on the Ruby Rogues podcast](http://rubyrogues.com/056-rr-david-heinemeier-hansson/) recently came up for discussion again on the private Parley mailing list.",
-//   body: "A long list of topics were raised and I took a time to ramble at large about all of them at once. Apologies for not taking the time to be more succinct, but at least each topic has a header so you can skip stuff you don't care about.\n\n### Maintainability\n\nIt's simply not true to say that I don't care about maintainability. I still work on the oldest Rails app in the world."
-// }];
 
-// App.Router.map(function() {
-//   this.resource('about');
-//   this.resource('posts', function() {
-//     this.resource('post', { path: ':post_id' });
-//   });
+App.StaffsRoute = Ember.Route.extend({
+  model: function() {
+    return blStaff.getAll();
+  }
+});
+
+App.StaffRoute = Ember.Route.extend({
+  model: function(params) {
+    console.log('params', params, blStaff.getAll().findBy('id', params.staff_id));
+    return blStaff.getAll().findBy('id', params.staff_id);
+  }
+});
+
+// App.PostRoute = Ember.Route.extend({
+//   model: function(params) {
+//     return posts.findBy('id', params.post_id);
+//   }
 // });
 
 // App.PostsRoute = Ember.Route.extend({

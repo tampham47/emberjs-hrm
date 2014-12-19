@@ -24,7 +24,6 @@
                 <li>{{#link-to "auth"}}Auth{{/link-to}}</li>
                 <li>{{#link-to "dashboard"}}Dashboard{{/link-to}}</li>
                 <li>{{#link-to "staffs"}}Staff{{/link-to}}</li>
-                <li>{{#link-to "staff"}}Information{{/link-to}}</li>
                 <li>{{#link-to "comments"}}Comments{{/link-to}}</li>
               </ul>
           </nav>
@@ -126,28 +125,19 @@
           <th>Email</th>
           <th>Team</th>
         </tr>
+        {{#each model}}
         <tr>
-          <td>Full Name</td>
-          <td>Join Date</td>
-          <td>Skype</td>
-          <td>Email</td>
-          <td>Team</td>
+          <td>{{#link-to 'staff' this}}{{fullName}}{{/link-to}}</td>
+          <td>{{joinedDate}}</td>
+          <td>{{skype}}</td>
+          <td>{{email}}</td>
+          <td>{{department}}</td>
         </tr>
-        <tr>
-          <td>Full Name</td>
-          <td>Join Date</td>
-          <td>Skype</td>
-          <td>Email</td>
-          <td>Team</td>
-        </tr>
-        <tr>
-          <td>Full Name</td>
-          <td>Join Date</td>
-          <td>Skype</td>
-          <td>Email</td>
-          <td>Team</td>
-        </tr>
+        {{/each}}
       </table>
+    </div>
+    <div>
+      {{outlet}}
     </div>
   </script>
 
@@ -162,8 +152,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="fullName">Full Name</label>
             <div class="col-md-8">
-            <input id="fullName" name="fullName" type="text" placeholder="Full Name" class="form-control input-md" required="">
-
+            {{input id="fullName" name="fullName" type="text" placeholder="Full Name" class="form-control input-md" required="" value=fullName}}
             </div>
           </div>
 
