@@ -27,7 +27,7 @@ var staffs = [
     id: '2',
     fullName: 'Soa Nguyễn',
     dateOfBirth: '05/11/1990',
-    gender: 'Male',
+    gender: 'Female',
     address: '103 D1, Phường 25, Quận Bình Thạnh, Sài Gòn',
     mobile: '01643652922',
     skype: 'soanguyen69',

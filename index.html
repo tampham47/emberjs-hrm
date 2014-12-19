@@ -152,6 +152,94 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="fullName">Full Name</label>
             <div class="col-md-8">
+              <b class="form-control input-md">{{fullName}}</b>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="dateOfBirth">Date of birth</label>
+            <div class="col-md-8">
+              <b class="form-control input-md">{{dateOfBirth}}</b>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="gender">Gender</label>
+            <div class="col-md-8">
+              <b class="form-control input-md">{{gender}}</b>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="address">Address</label>
+            <div class="col-md-8">
+              <b class="form-control input-md">{{address}}</b>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="id">ID</label>
+            <div class="col-md-8">
+              <b class="form-control input-md">{{id}}</b>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="mobile">Mobile</label>
+            <div class="col-md-8">
+              <b class="form-control input-md">{{mobile}}</b>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="skype">Skype</label>
+            <div class="col-md-8">
+              <b class="form-control input-md">{{skype}}</b>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="email">Email</label>
+            <div class="col-md-8">
+              <b class="form-control input-md">{{email}}</b>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="joinedDate">Join Date</label>
+            <div class="col-md-8">
+              <b class="form-control input-md">{{joinedDate}}</b>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="save"></label>
+            <div class="col-md-8">
+              <button id="save" name="save" class="btn btn-success">Save</button>
+              <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
+            </div>
+          </div>
+
+          </fieldset>
+          </form>
+      </div>
+      <div class='col-md-6'>
+        <p>Avatar here</p>
+      </div>
+    </div>
+  </script>
+
+  <script id="staff/_edit" type="text/x-handlebars">
+    <div class="row">
+      <div class='col-md-6'>
+        <form class="form-horizontal">
+          <fieldset>
+
+          <legend>Staff Information</legend>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="fullName">Full Name</label>
+            <div class="col-md-8">
             {{input id="fullName" name="fullName" type="text" placeholder="Full Name" class="form-control input-md" required="" value=fullName}}
             </div>
           </div>
