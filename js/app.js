@@ -112,10 +112,15 @@ var BLComment = function() {
 
   this.addNew = function(newItem) {
     this.context.push(newItem);
+    save(this.context);
     return true;
   };
 
-  this.delete = function(id) {
+  this.remove = function(id) {
+    _.remove(this.context, function(item) {
+      return item.id == id;
+    });
+    save(this.context);
     return true;
   };
 };
@@ -179,10 +184,15 @@ App.StaffRoute = Ember.Route.extend({
   },
   renderTemplate: function(params){
     var userId = params.content.id;
+    var controller = this.controllerFor('comments');
+    controller.set('userId', userId);
+
     this.render();
     this.render('comments', {
       outlet: 'comments',
-      model: blComment.getByUser(userId)
+      userId: userId,
+      model: blComment.getByUser(userId),
+      controller: controller
     });
   }
 });
@@ -229,9 +239,25 @@ App.StaffsController = Ember.ObjectController.extend({
 });
 
 App.CommentsController = Ember.ObjectController.extend({
+  userId: '',
   actions: {
     add: function() {
-      console.log('comments add');
+      var userId = this.get('userId');
+      var newComment = {
+        id: moment().format('X'),
+        creatorId: '',
+        userId: userId,
+        dateCreated: moment().format('MM/DD/YYYY'),
+        comment: this.get('comment')
+      };
+      blComment.addNew(newComment);
+      console.log('comments add', newComment);
+      this.set('model', blComment.getByUser(userId));
+    },
+    remove: function(content) {
+      blComment.remove(content.id);
+      console.log('remove', content);
+      this.set('model', blComment.getByUser(this.get('userId')));
     }
   }
 });

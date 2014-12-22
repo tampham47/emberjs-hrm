@@ -239,7 +239,8 @@
         </div>
       </div>
 
-      <div class="medium-4 columns">
+      <div class="medium-4 columns" style="text-align: center">
+        <img src="img/avatar.png" style="width:200px; height:200px">
         <p>Avatar Here</p>
       </div>
     </div>
@@ -355,9 +356,9 @@
           <h3>History</h3>
           {{#each model}}
           <div data-alert class="alert-box secondary">
-            <p>20/10/2010</p>
+            <p>{{dateCreated}}</p>
             <hr >
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting.
+            {{comment}}
             <a href="#" class="close" {{action remove this}}>&times;</a>
           </div>
           {{/each}}
@@ -365,7 +366,7 @@
             <form action="#" id="comments-form" method="post">
               <div class="row">
                 <div class="medium-12 columns">
-                  <textarea rows="2" cols="50" placeholder="Write a note"></textarea>
+                  {{textarea rows="2" cols="50" value=comment}}
                 </div>
               </div>
               <div class="row text-center">
