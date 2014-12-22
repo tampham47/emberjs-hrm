@@ -74,7 +74,7 @@ var BLStaff = function() {
     return true
   };
 
-  this.context = JSON.stringify(eval('('+localStorage.getItem('Staff')+')'));
+  this.context = JSON.parse(localStorage.getItem('Staff'));
 
   this.getAll = function() {
     return this.context;
@@ -107,7 +107,7 @@ var BLComment = function() {
     return true
   };
 
-  this.context = JSON.stringify(eval('('+localStorage.getItem('Comment')+')'));
+  this.context = JSON.parse(localStorage.getItem('Comment'));
 
   this.getAll = function() {
     // save(this.context);
@@ -138,6 +138,15 @@ var BLDepartment = function() {
   }
 };
 
+var init = function() {
+  if (localStorage.getItem('Staff') == null)
+    localStorage.setItem('Staff', JSON.stringify(staffs));
+  if (localStorage.getItem('Comment') == null)
+    localStorage.setItem('Comment', JSON.stringify(comments));
+};
+// init function for the first at all
+init();
+
 var blComment = new BLComment();
 var blStaff = new BLStaff();
 var blDepartment = new BLDepartment();
@@ -145,15 +154,6 @@ var blDepartment = new BLDepartment();
 console.log('BLComment', blComment.getAll());
 console.log('BLStaff', blStaff.getAll());
 console.log('BlDepartment', blDepartment.getAll());
-
-// init function for the first at all
-var init = function() {
-  if (localStorage.getItem('Staff') == null)
-    localStorage.setItem('Staff', JSON.stringify(staffs));
-  if (localStorage.getItem('Comment') == null)
-    localStorage.setItem('Comment', JSON.stringify(comments));
-}
-init();
 
 App.StaffsRoute = Ember.Route.extend({
   model: function() {
