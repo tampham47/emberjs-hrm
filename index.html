@@ -44,45 +44,49 @@
   </script>
 
   <script id="auth" type="text/x-handlebars">
-    <div class="row">
-      <div class="large-12 columns">
-        <h1 class="logo-hrm">
-          <a href="index.html" title="Sutrix HRM">
-            <img alt="Sutrix HRM" src="img/logo.png">
-          </a>
-        </h1>
+    <header id="header">
+      <div class="row">
+        <div class="small-12 columns">
+          <h1>
+            <a href="index.html" title="Sutrix HRM" class="logo-hrm">
+              <img src="img/logo.png" alt="Sutrix HRM" >
+            </a>
+          </h1>
+        </div>
       </div>
-    </div>
-<!-- Login Form -->
-    <div class="row">
-      <div class="large-5 large-centered columns login-frm">
-        <form action="#">
-          <div class="row">
-            <div class="large-3 columns">
-              <label for="usename">Usename: </label>
-            </div>
-            <div class="large-9 columns">
-              <input type="text" id="usename" name="usename" placeholder=" " />
-            </div>
+    </header><!-- /header -->
+    <main>
+      <!-- Login Form -->
+      <div class="row">
+        <div class="medium-5 medium-centered columns">
+          <div class="login-form">
+            <form action="#" id="login-form" method="post">
+              <div class="row">
+                <div class="medium-3 columns">
+                  <label for="usename">Usename: </label>
+                </div>
+                <div class="medium-9 columns">
+                  <input type="text" id="usename" name="usename" placeholder=" " />
+                </div>
+              </div>
+              <div class="row">
+                <div class="medium-3 columns">
+                  <label for="password">Password: </label>
+                </div>
+                <div class="medium-9 columns">
+                  <input type="text" id="password" name="password" placeholder=" " />
+                  <!-- <small class="error">Invalid entry</small> class="error"-->
+                </div>
+              </div>
+              <div class="row text-center">
+                <a href="#" class="button btn-ok">OK</a>
+              </div>
+            </form>
           </div>
-          <div class="row">
-            <div class="large-3 columns">
-              <label for="password">Password: </label>
-            </div>
-            <div class="large-9 columns">
-              <input type="text" id="password"  name="password" placeholder=" " />
-              <!-- <small class="error">Invalid entry</small> class="error"-->
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-1 large-centered columns">
-              <a href="#" class="button btn-submit">OK</a>
-            </div>
-          </div>
-        </form>
+        </div>
       </div>
-    </div>
-<!-- End Login Form -->
+      <!-- End Login Form -->
+    </main>
   </script>
 
   <script id="dashboard" type="text/x-handlebars">
@@ -90,106 +94,105 @@
   </script>
 
   <script id="staffs" type="text/x-handlebars">
-    <div class="row">
-      <div class="large-12 columns">
-        <h1 class="logo-hrm">
-          <a href="index.html" title="Sutrix HRM">
-            <img alt="Sutrix HRM" src="img/logo.png">
-          </a>
-        </h1>
+    <header id="header">
+      <div class="row">
+        <div class="small-12 columns">
+          <h1>
+            <a href="index.html" title="Sutrix HRM" class="logo-hrm">
+              <img src="img/logo.png" alt="Sutrix HRM" >
+            </a>
+          </h1>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="large-12 columns">
-        <dl class="tabs ct-tabs" data-tab>
-          <dd><a href="#panel1">Dashboard</a></dd>
-          <dd class="active"><a href="#panel2">Staff</a></dd>
+    </header><!-- /header -->
+    <main>
+      <div class="row">
+        <dl class="ct-tabs" data-tab>
+          <dd><a href="javascript:;">Dashboard</a></dd>
+          <dd class="active"><a href="javascript:;2">Staff</a></dd>
         </dl>
-        <div class="tabs-content">
-          <div class="content" id="panel1">
-            <p>Map</p>
-          </div>
-          <div class="content active" id="panel2">
-    <!-- Filter Block -->
-            <div class="filter-block">
-              <div class="title">
-                <span>Filter:</span>
-                <a href="#">Add</a>
-              </div>
+      </div>
+<!-- Filter Block -->
 
+      <div class="filter-block">
+        <div class="row">
+          <div class="title">
+            <h2>Filter:</h2>
+            <a href="javascript:;">Add</a>
+          </div>
+          </div>
+        <div class="row">
+          <div class="medium-5 medium-centered columns">
+            <form action="#" id="filter-form" method="post">
               <div class="row">
-                <div class="large-5 large-centered columns">
-                  <form action="#">
-                    <div class="row">
-                      <div class="large-3 columns">
-                        <label for="name">Name: </label>
-                      </div>
-                      <div class="large-9 columns">
-                        <input type="text" id="name" name="name" placeholder=" " />
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="large-3 columns">
-                        <label >Department: </label>
-                      </div>
-                      <div class="large-9 columns">
-                        <select>
-                          <option value="husker">FrontEnd</option>
-                          <option value="starbuck">Java</option>
-                          <option value="hotdog">QC</option>
-                          <option value="apollo">HR</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="large-3 large-centered columns">
-                        <a href="#" class="button btn-submit">Apply</a>
-                      </div>
-                    </div>
-                  </form>
+                <div class="medium-3 columns">
+                  <label for="name">Name: </label>
+                </div>
+                <div class="medium-9 columns">
+                  <input type="text" id="name" name="name" placeholder=" " />
                 </div>
               </div>
-            </div>
-    <!-- End Filter Block -->
-
-    <!-- Result Block -->
-            <div class="result-block">
-              <div class="title">
-                <span>Result</span>
+              <div class="row">
+                <div class="medium-3 columns">
+                  <label >Department: </label>
+                </div>
+                <div class="medium-9 columns">
+                  <select>
+                    <option value="husker">FrontEnd</option>
+                    <option value="starbuck">Java</option>
+                    <option value="hotdog">QC</option>
+                    <option value="apollo">HR</option>
+                  </select>
+                </div>
               </div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Fullname</th>
-                    <th>Join date</th>
-                    <th>Skype</th>
-                    <th>Email</th>
-                    <th>Team</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Nguyen Thi Huyen Tran</td>
-                    <td>20/10/2010</td>
-                    <td>sutrix.tran.nguyen</td>
-                    <td>tran.nguyen@sutrixmedia.com</td>
-                    <td>Frontend</td>
-                  </tr>
-                  <tr>
-                    <td>Pham Thi Huyen Tran</td>
-                    <td>31/12/1013</td>
-                    <td>sutrix.tran.pham</td>
-                    <td>tran.pham@sutrixmedia.com</td>
-                    <td>Frontend</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-    <!-- End Result Block -->
+              <div class="row text-center">
+                  <a href="#" class="button btn-submit">Apply</a>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </div>
+<!-- End Filter Block -->
+
+<!-- Result Block -->
+      <div class="result-block">
+        <div class="row">
+          <div class="title">
+            <h2>Result</h2>
+          </div>
+        </div>
+        <div class="row">
+          <table>
+            <thead>
+              <tr>
+                <th>Fullname</th>
+                <th>Join date</th>
+                <th>Skype</th>
+                <th>Email</th>
+                <th>Team</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nguyen Thi Huyen Tran</td>
+                <td>20/10/2010</td>
+                <td>sutrix.tran.nguyen</td>
+                <td>tran.nguyen@sutrixmedia.com</td>
+                <td>Frontend</td>
+              </tr>
+              <tr>
+                <td>Pham Thi Huyen Tran</td>
+                <td>31/12/1013</td>
+                <td>sutrix.tran.pham</td>
+                <td>tran.pham@sutrixmedia.com</td>
+                <td>Frontend</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+<!-- End Result Block -->
+    </main>
   </script>
 
   <script id="staff" type="text/x-handlebars">
@@ -383,19 +386,21 @@
   </script>
 
   <script id="comments" type="text/x-handlebars">
-    <div class="row">
-      <div class="large-12 columns">
-        <h1 class="logo-hrm">
-          <a href="index.html" title="Sutrix HRM">
-            <img alt="Sutrix HRM" src="img/logo.png">
-          </a>
-        </h1>
+    <header id="header">
+      <div class="row">
+        <div class="small-12 columns">
+          <h1>
+            <a href="index.html" title="Sutrix HRM" class="logo-hrm">
+              <img src="img/logo.png" alt="Sutrix HRM" >
+            </a>
+          </h1>
+        </div>
       </div>
-    </div>
+    </header><!-- /header -->
 <!-- History -->
     <div class="history-block">
       <div class="row">
-        <div class="large-12 columns">
+        <div class="medium-12 columns">
           <h3>History:</h3>
           <div data-alert class="alert-box secondary">
             <p>20/10/2010</p>
@@ -409,18 +414,18 @@
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting.
             <a href="#" class="close">&times;</a>
           </div>
-          <form action="#">
-            <div class="row">
-              <div class="large-12 columns">
-                <textarea rows="3" cols="50" placeholder="Write a note"></textarea>
+          <div class="comments-form">
+            <form action="#" id="comments-form" method="post">
+              <div class="row">
+                <div class="medium-12 columns">
+                  <textarea rows="2" cols="50" placeholder="Write a note"></textarea>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="large-1 large-centered columns">
-                <a href="#" class="button btn-submit">Add</a>
+              <div class="row text-center">
+                <a href="#" class="button btn-add">Add</a>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>

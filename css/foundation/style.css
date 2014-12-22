@@ -14,11 +14,89 @@ body {
 .logo-hrm {
     padding-top: 30px;
 }
-.filter-block {
-    margin-top: 7px;
+.title {
+    background: #dfdfdf;
+    padding: 4px 10px 0;
+    margin-bottom: 8px;
 }
+.title h2 {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+.title a {
+    float: right;
+    text-decoration: underline;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+}
+.button {
+    color: #000;
+    background: #ff8a00;
+}
+.btn-ok {
+    padding: 2px 20px;
+}
+.btn-submit {
+    padding: 2px 11px;
+}
+.btn-add {
+    padding: 2px 15px;
+}
+.btn-submit:hover, .btn-ok:hover, .btn-add:hover {
+    background: #ff8a00;
+    color: #fff;
+    text-decoration: none;
+}
+.ct-tabs {
+    padding-top: 20px;
+    margin-bottom: 12px;
+}
+.ct-tabs dd {
+    display: inline-block;
+}
+.ct-tabs dd:first-child a {
+    border-right: 2px solid #000;
+    padding-right: 5px;
+}
+.ct-tabs dd:last-child a {
+    padding-left: 3px;
+}
+.ct-tabs dd > a{
+    background: transparent;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0;
+    text-decoration: none;
+}
+.ct-tabs dd.active > a{
+    color: #ff8a00;
+    background: transparent;
+}
+.ct-tabs dd > a:hover {
+    background: transparent;
+    text-decoration: none;
+}
+/*End Block*/
+/*Login*/
+.login-form {
+    margin-top: 97px;
+}
+.login-form label {
+    font-size: 14px;
+    color: #000;
+    margin-left: 18px;
+}
+.login-form input {
+    height: 23px;
+}
+/*End login*/
+/* Filter Block */
 .filter-block form {
-    margin-top: 20px;
+    margin-top: 12px;
 }
 .filter-block input, select {
     height: 23px;
@@ -27,78 +105,21 @@ body {
 .filter-block input {
     padding: 0 8px;
 }
-/*End Block*/
-
-/*===========================================*/
-/*Login*/
-.login-frm {
-    margin-top: 103px;
-}
-.login-frm label {
-    font-size: 14px;
-    color: #000;
-    margin-left: 18px;
-}
-.login-frm input {
-    height: 23px;
-}
-.btn-submit {
-    padding: 3px 20px;
-    color: #000;
-    background: #ff8a00;
-}
-.btn-submit:hover {
-    background: #ff8a00;
-    color: #fff;
-}
-
-/*End login*/
-/*===========================================*/
-/*Find-Staff*/
-.ct-tabs {
-    padding-top: 26px;
-}
-.ct-tabs dd:first-child a {
-    border-right: 2px solid #000;
-    padding-right: 5px;
-}
-.ct-tabs dd:last-child a {
-    padding-left: 5px;
-}
-.ct-tabs dd > a{
-    background: transparent;
-    color: #000;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 0;
-}
-
-.ct-tabs dd.active > a{
-    color: #ff8a00;
-    background: transparent;
-}
-
-.ct-tabs dd > a:hover {
-    background: transparent;
-    text-decoration: none;
-}
-/*End Find-Staff*/
-/*===========================================*/
+/* End Filter Block */
 /*Result Block*/
 .result-block table {
     width: 100%;
-}
-.result-block table {
     border-spacing: 0;
     background: transparent;
     border-left: none;
     border-right: none;
+    border-top: none;
 }
-.result-block table thead {
+.result-block table thead, .result-block table tbody tr {
     background: transparent;
 }
-.result-block table tbody tr {
-    background: transparent;
+.result-block table thead th {
+    font-weight: normal;
 }
 .result-block table tbody tr:hover{
     background: #ff8a00;
@@ -108,22 +129,6 @@ body {
     text-transform: capitalize;
 }
 /* End Result Block*/
-.title {
-    background: #dfdfdf;
-    padding: 6.5px 10px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #000;
-}
-.title a{
-    float: right;
-    text-decoration: underline;
-    color: #000;
-}
-
-.apply-btn {
-    padding: 10px 20px;
-}
 /* history-block */
 .history-block h3 {
     font-size: 18px;
@@ -150,5 +155,8 @@ body {
 }
 .history-block hr{
     margin: 0 -25px 8px -15px;
+}
+.comments-form textarea {
+    margin-bottom: 10px;
 }
 /* End history-block */
