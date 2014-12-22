@@ -1,0 +1,151 @@
+/*
+    @grey-dark: #dfdfdf;
+    @grey-light: #efeded;
+    @grey-pp: #f0eeee;
+    @orange: #ff8a00;
+    @border-color: #a8acad;
+    @border-shadow-color: #e3e3e3;
+*/
+/*Block*/
+body {
+    background-image: url('../img/background.jpg');
+    font-size: 14px;
+}
+.logo-hrm {
+    text-transform: uppercase;
+    color: #ff8a00;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Century Gothic';
+    padding-top: 30px;
+}
+.filter-block {
+    margin-top: 7px;
+}
+.filter-block form {
+    margin-top: 20px;
+}
+.filter-block input, select {
+    height: 23px;
+    padding: 0 5px;
+}
+.filter-block input {
+    padding: 0 8px;
+}
+/*End Block*/
+
+/*===========================================*/
+/*Login*/
+.login-frm {
+    margin-top: 103px;
+}
+.login-frm label {
+    font-size: 14px;
+    color: #000;
+    margin-left: 18px;
+}
+.login-frm input {
+    height: 23px;
+}
+.btn-submit {
+    padding: 3px 20px;
+    color: #000;
+    background: #ff8a00;
+}
+.btn-submit:hover {
+    background: #ff8a00;
+    color: #fff;
+}
+
+/*End login*/
+/*===========================================*/
+/*Find-Staff*/
+.ct-tabs {
+    padding-top: 26px;
+}
+.ct-tabs dd > a{
+    background: #fff;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0;
+}
+
+.ct-tabs dd.active > a{
+    color: #ff8a00;
+    padding: 0;
+}
+
+.ct-tabs dd > a:hover {
+    background: #fff;
+}
+/*End Find-Staff*/
+/*===========================================*/
+/*Result Block*/
+.result-block table {
+    width: 100%;
+}
+.result-block table {
+    border-spacing: 0;
+    background: transparent;
+    border-left: none;
+    border-right: none;
+}
+.result-block table thead {
+    background: transparent;
+}
+.result-block table tbody tr {
+    background: transparent;
+}
+.result-block table tbody tr:hover{
+    background: #ff8a00;
+    cursor: pointer;
+}
+.result-block table tbody tr td:first-child {
+    text-transform: capitalize;
+}
+/* End Result Block*/
+.title {
+    background: #dfdfdf;
+    padding: 6.5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+.title a{
+    float: right;
+    text-decoration: underline;
+    color: #000;
+}
+
+.apply-btn {
+    padding: 10px 20px;
+}
+/* history-block */
+.history-block h3 {
+    font-size: 18px;
+    color: #ff8a00;
+    font-weight: bold;
+    margin-bottom: 13px;
+}
+.history-block p {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+.history-block .alert-box {
+    font-size: 14px;
+    background-color: #f0eeee;
+    border: none;
+    overflow: hidden;
+    padding: 6px 10px 10px;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+}
+.history-block .alert-box a {
+    top: 20%;
+}
+.history-block hr{
+    margin: 0 -25px 8px -15px;
+}
+/* End history-block */
