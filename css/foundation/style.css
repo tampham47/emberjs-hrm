@@ -58,8 +58,15 @@ body {
 .ct-tabs {
     padding-top: 26px;
 }
+.ct-tabs dd:first-child a {
+    border-right: 2px solid #000;
+    padding-right: 5px;
+}
+.ct-tabs dd:last-child a {
+    padding-left: 5px;
+}
 .ct-tabs dd > a{
-    background: #fff;
+    background: transparent;
     color: #000;
     font-size: 16px;
     font-weight: bold;
@@ -68,11 +75,12 @@ body {
 
 .ct-tabs dd.active > a{
     color: #ff8a00;
-    padding: 0;
+    background: transparent;
 }
 
 .ct-tabs dd > a:hover {
-    background: #fff;
+    background: transparent;
+    text-decoration: none;
 }
 /*End Find-Staff*/
 /*===========================================*/
