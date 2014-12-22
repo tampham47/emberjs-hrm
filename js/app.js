@@ -68,7 +68,14 @@ var departmentList = [
 
 // class controll business function for staff object
 var BLStaff = function() {
-  this.context = staffs;
+  var save = function(data) {
+    console.log('save', data);
+    localStorage.setItem('Staff', JSON.stringify(data));
+    return true
+  };
+
+  this.context = JSON.stringify(eval('('+localStorage.getItem('Staff')+')'));
+
   this.getAll = function() {
     return this.context;
   };
@@ -93,8 +100,17 @@ var BLStaff = function() {
 
 // class controll business function for comment object
 var BLComment = function() {
-  this.context = comments;
+
+  var save = function(data) {
+    console.log('save', data);
+    localStorage.setItem('Comment', JSON.stringify(data));
+    return true
+  };
+
+  this.context = JSON.stringify(eval('('+localStorage.getItem('Comment')+')'));
+
   this.getAll = function() {
+    // save(this.context);
     return this.context;
   };
 
@@ -130,6 +146,14 @@ console.log('BLComment', blComment.getAll());
 console.log('BLStaff', blStaff.getAll());
 console.log('BlDepartment', blDepartment.getAll());
 
+// init function for the first at all
+var init = function() {
+  if (localStorage.getItem('Staff') == null)
+    localStorage.setItem('Staff', JSON.stringify(staffs));
+  if (localStorage.getItem('Comment') == null)
+    localStorage.setItem('Comment', JSON.stringify(comments));
+}
+init();
 
 App.StaffsRoute = Ember.Route.extend({
   model: function() {
