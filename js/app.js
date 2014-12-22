@@ -3,9 +3,11 @@ App = Ember.Application.create({});
 App.Router.map(function() {
   this.resource('auth');
   this.resource('dashboard');
-  this.resource('staffs', function() {
-    this.resource('staff', {path: ':staff_id'});
-  });
+  this.resource('staffs');
+  this.resource('staff');
+  // this.resource('staffs', function() {
+  //   this.resource('staff', {path: ':staff_id'});
+  // });
   this.resource('comments');
 });
 
