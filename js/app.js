@@ -153,10 +153,10 @@ var App = Ember.Application.create({});
 App.Router.map(function() {
   this.resource('auth');
   this.resource('dashboard');
-  // this.resource('staffs');
   this.resource('staffs', function() {
     this.resource('staff', {path: ':staff_id'});
   });
+  this.resource('staffs.new');
 });
 
 App.IndexController = Ember.ObjectController.extend({
@@ -234,6 +234,15 @@ App.StaffsController = Ember.ObjectController.extend({
       };
       blStaff.addNew(newItem);
       this.set('model', blStaff.getAll());
+    }
+  }
+});
+
+App.StaffsNewController = Ember.ObjectController.extend({
+  actions: {
+    add: function() {
+      console.log('StaffsNewController Add');
+      this.transitionToRoute('staffs');
     }
   }
 });

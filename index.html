@@ -74,8 +74,9 @@
         <dd class="active">{{#link-to 'staffs'}}Staff{{/link-to}}</dd>
       </dl>
     </div>
-
-    <p>DASHBOARD</p>
+    <div class="row">
+      <p>DASHBOARD</p>
+    </div>
   </script>
 
   <script id="staffs" type="text/x-handlebars">
@@ -91,7 +92,7 @@
       <div class="row">
         <div class="title">
           <h2>Filter:</h2>
-          <a href="javascript:;" {{action 'addNew'}}>Add</a>
+          {{#link-to "staffs.new" href="javascript:;"}}Add{{/link-to}}
         </div>
         </div>
       <div class="row">
@@ -246,104 +247,86 @@
     </div>
   </script>
 
-  <script id="staff/_edit" type="text/x-handlebars">
-    <div class="row">
-      <div class='col-md-6'>
-        <form class="form-horizontal">
-          <fieldset>
-
-          <legend>Staff Information</legend>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="fullName">Full Name</label>
-            <div class="col-md-8">
-            {{input id="fullName" name="fullName" type="text" placeholder="Full Name" class="form-control input-md" required="" value=fullName}}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="dateOfBirth">Date of birth</label>
-            <div class="col-md-8">
-            <input id="dateOfBirth" name="dateOfBirth" type="text" placeholder="" class="form-control input-md" required="">
-
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="gender">Gender</label>
-            <div class="col-md-4">
-              <label class="radio-inline" for="gender-0">
-                <input type="radio" name="gender" id="gender-0" value="Male" checked="checked">
-                Male
-              </label>
-              <label class="radio-inline" for="gender-1">
-                <input type="radio" name="gender" id="gender-1" value="Female">
-                Female
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="address">Address</label>
-            <div class="col-md-8">
-            <input id="address" name="address" type="text" placeholder="address" class="form-control input-md">
-
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="id">ID</label>
-            <div class="col-md-8">
-            <input id="id" name="id" type="text" placeholder="ID" class="form-control input-md" required="">
-
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="mobile">Mobile</label>
-            <div class="col-md-8">
-            <input id="mobile" name="mobile" type="text" placeholder="mobile" class="form-control input-md" required="">
-
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="skype">Skype</label>
-            <div class="col-md-8">
-            <input id="skype" name="skype" type="text" placeholder="skype" class="form-control input-md" required="">
-
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="email">Email</label>
-            <div class="col-md-8">
-            <input id="email" name="email" type="text" placeholder="email" class="form-control input-md" required="">
-
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="joinedDate">Join Date</label>
-            <div class="col-md-8">
-            <input id="joinedDate" name="joinedDate" type="text" placeholder="join date" class="form-control input-md" required="">
-
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="save"></label>
-            <div class="col-md-8">
-              <button id="save" name="save" class="btn btn-success">Save</button>
-              <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
-            </div>
-          </div>
-
-          </fieldset>
-          </form>
+  <script id="staffs/new" type="text/x-handlebars">
+    <div class="staff-new-block">
+      <div class="row">
+        <div class="medium-12 columns">
+          <h3>Staff Information</h3>
+        </div>
       </div>
-      <div class='col-md-6'>
-        <p>Avatar here</p>
+    </div>
+    <div class="row">
+      <div class="medium-8 columns">
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="fullName">Full Name</label>
+          <div class="col-md-8">
+            {{input class="form-control input-md" value=fullName}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="dateOfBirth">Date of birth</label>
+          <div class="col-md-8">
+            {{input class="form-control input-md" value=dateOfBirth}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="gender">Gender</label>
+          <div class="col-md-8">
+            {{input class="form-control input-md" value=gender}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="address">Address</label>
+          <div class="col-md-8">
+            {{input class="form-control input-md" value=address}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="id">ID</label>
+          <div class="col-md-8">
+            {{input class="form-control input-md" value=id}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="mobile">Mobile</label>
+          <div class="col-md-8">
+            {{input class="form-control input-md" value=mobile}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="skype">Skype</label>
+          <div class="col-md-8">
+            {{input class="form-control input-md" value=skype}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="email">Email</label>
+          <div class="col-md-8">
+            {{input class="form-control input-md" value=email}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="joinedDate">Join Date</label>
+          <div class="col-md-8">
+            {{input class="form-control input-md" value=joinedDate}}
+          </div>
+        </div>
+        <div class="row text-center">
+          <a href="#" class="button btn-add" {{action add}}>Add</a>
+        </div>
+      </div>
+
+      <div class="medium-4 columns" style="text-align: center">
+        <img src="img/avatar.png" style="width:200px; height:200px">
+        <p>Avatar Here</p>
       </div>
     </div>
   </script>
