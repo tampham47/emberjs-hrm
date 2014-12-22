@@ -104,7 +104,7 @@ var BLComment = function() {
   };
 
   this.getByUser = function(userId) {
-    var filterResult = _.filter(this.context, function(item) {
+    var filterResult = _.filter(this.context, function(item, i) {
       return item.userId == userId;
     });
     return filterResult;
@@ -148,14 +148,10 @@ var App = Ember.Application.create({});
 App.Router.map(function() {
   this.resource('auth');
   this.resource('dashboard');
-  this.resource('staffs');
-  // this.resource('staff');
+  // this.resource('staffs');
   this.resource('staffs', function() {
     this.resource('staff', {path: ':staff_id'});
-    // this.resource('comments', {path: ':staff_id'});
-    // this.route('comments', {path: ':staff_id'});
   });
-  // this.resource('comments');
 });
 
 App.IndexController = Ember.ObjectController.extend({
@@ -181,9 +177,13 @@ App.StaffRoute = Ember.Route.extend({
     });
     return result[0] || null;
   },
-  renderTemplate: function(){
+  renderTemplate: function(params){
+    var userId = params.content.id;
     this.render();
-    this.render('comments', {outlet: 'comments'});
+    this.render('comments', {
+      outlet: 'comments',
+      model: blComment.getByUser(userId)
+    });
   }
 });
 
@@ -235,44 +235,3 @@ App.CommentsController = Ember.ObjectController.extend({
     }
   }
 });
-// App.PostRoute = Ember.Route.extend({
-//   model: function(params) {
-//     return posts.findBy('id', params.post_id);
-//   }
-// });
-
-// App.PostsRoute = Ember.Route.extend({
-//   model: function() {
-//     return posts;
-//   }
-// });
-
-// App.PostRoute = Ember.Route.extend({
-//   model: function(params) {
-//     return posts.findBy('id', params.post_id);
-//   }
-// });
-
-// App.PostController = Ember.ObjectController.extend({
-//   isEditing: false,
-
-//   actions: {
-//     edit: function() {
-//       this.set('isEditing', true);
-//     },
-
-//     doneEditing: function() {
-//       this.set('isEditing', false);
-//     }
-//   }
-// });
-
-// var showdown = new Showdown.converter();
-
-// Ember.Handlebars.helper('format-markdown', function(input) {
-//   return new Handlebars.SafeString(showdown.makeHtml(input));
-// });
-
-// Ember.Handlebars.helper('format-date', function(date) {
-//   return moment(date).fromNow();
-// });

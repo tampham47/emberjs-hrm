@@ -148,7 +148,6 @@
           <tbody>
             {{#each model}}
             <tr>
-
               <td>{{#link-to 'staff' this}}{{fullName}}{{/link-to}}</td>
               <td>{{dateOfBirth}}</td>
               <td>{{skype}}</td>
@@ -362,12 +361,6 @@
             <a href="#" class="close" {{action remove this}}>&times;</a>
           </div>
           {{/each}}
-          <div data-alert class="alert-box secondary">
-            <p>20/10/2010</p>
-            <hr >
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting.
-            <a href="#" class="close" {{action remove this}}>&times;</a>
-          </div>
           <div class="comments-form">
             <form action="#" id="comments-form" method="post">
               <div class="row">
