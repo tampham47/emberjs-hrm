@@ -1,15 +1,4 @@
-App = Ember.Application.create({});
-
-App.Router.map(function() {
-  this.resource('auth');
-  this.resource('dashboard');
-  this.resource('staffs');
-  // this.resource('staff');
-  this.resource('staffs', function() {
-    this.resource('staff', {path: ':staff_id'});
-  });
-  this.resource('comments');
-});
+'use strict'
 
 var staffs = [
   {
@@ -44,14 +33,14 @@ var comments = [
   {
     id: '1',
     creatorId: '',
-    staffId: '1',
+    userId: '1',
     dateCreated: '19/12/2014',
     comment: 'Thằng này khá'
   },
   {
     id: '2',
     creatorId: '',
-    staffId: '2',
+    userId: '2',
     dateCreated: '19/12/2014',
     comment: 'Con này được'
   }
@@ -114,16 +103,15 @@ var BLComment = function() {
     return this.context;
   };
 
-  this.getById = function(id) {
-    return this.context;
+  this.getByUser = function(userId) {
+    var filterResult = _.filter(this.context, function(item) {
+      return item.userId == userId;
+    });
+    return filterResult;
   };
 
   this.addNew = function(newItem) {
     this.context.push(newItem);
-    return true;
-  };
-
-  this.update = function(id, data) {
     return true;
   };
 
@@ -155,6 +143,21 @@ console.log('BLComment', blComment.getAll());
 console.log('BLStaff', blStaff.getAll());
 console.log('BlDepartment', blDepartment.getAll());
 
+var App = Ember.Application.create({});
+
+App.Router.map(function() {
+  this.resource('auth');
+  this.resource('dashboard');
+  this.resource('staffs');
+  // this.resource('staff');
+  this.resource('staffs', function() {
+    this.resource('staff', {path: ':staff_id'});
+    // this.resource('comments', {path: ':staff_id'});
+    // this.route('comments', {path: ':staff_id'});
+  });
+  // this.resource('comments');
+});
+
 App.IndexController = Ember.ObjectController.extend({
   actions: {
     login: function() {
@@ -172,11 +175,23 @@ App.StaffsRoute = Ember.Route.extend({
 
 App.StaffRoute = Ember.Route.extend({
   model: function(params) {
-    staffId = params.staff_id
-    result = _.filter(blStaff.getAll(), function(item, i) {
+    var staffId = params.staff_id;
+    var result = _.filter(blStaff.getAll(), function(item, i) {
       return item.id == staffId;
     });
     return result[0] || null;
+  },
+  renderTemplate: function(){
+    this.render();
+    this.render('comments', {outlet: 'comments'});
+  }
+});
+
+App.CommentsRoute = Ember.Route.extend({
+  model: function(params) {
+    var userId = params.staff_id;
+    console.log('staffId', userId);
+    return blComment.getByUser(userId);
   }
 });
 
@@ -185,9 +200,9 @@ App.StaffsController = Ember.ObjectController.extend({
   departmentId: null,
   actions: {
     filter: function() {
-      query = this.get('strQuery');
-      departmentId = this.get('departmentId');
-      result = _.filter(blStaff.getAll(), function(item, index) {
+      var query = this.get('strQuery');
+      var departmentId = this.get('departmentId');
+      var result = _.filter(blStaff.getAll(), function(item, index) {
         return ((item.fullName.indexOf(query) >= 0) &
           ((departmentId == null) || ((departmentId != null) & (item.department == departmentId))));
       })
@@ -195,7 +210,7 @@ App.StaffsController = Ember.ObjectController.extend({
     },
     addNew: function() {
       var newItem = {
-        id: moment().unix(),
+        id: moment().format('X'),
         fullName: 'Tâm Phạm',
         dateOfBirth: '01/01/1990',
         gender: 'Male',
@@ -208,13 +223,18 @@ App.StaffsController = Ember.ObjectController.extend({
         department: 'Front-end'
       };
       blStaff.addNew(newItem);
-      var a = blStaff.getAll();
-      console.log('getAll', a);
-      this.set('model', a);
+      this.set('model', blStaff.getAll());
     }
   }
 });
 
+App.CommentsController = Ember.ObjectController.extend({
+  actions: {
+    add: function() {
+      console.log('comments add');
+    }
+  }
+});
 // App.PostRoute = Ember.Route.extend({
 //   model: function(params) {
 //     return posts.findBy('id', params.post_id);
