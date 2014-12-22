@@ -4,10 +4,10 @@ App.Router.map(function() {
   this.resource('auth');
   this.resource('dashboard');
   this.resource('staffs');
-  this.resource('staff');
-  // this.resource('staffs', function() {
-  //   this.resource('staff', {path: ':staff_id'});
-  // });
+  // this.resource('staff');
+  this.resource('staffs', function() {
+    this.resource('staff', {path: ':staff_id'});
+  });
   this.resource('comments');
 });
 
@@ -71,7 +71,7 @@ var BLStaff = function() {
   var save = function(data) {
     console.log('save', data);
     localStorage.setItem('Staff', JSON.stringify(data));
-    return true
+    return true;
   };
 
   this.context = JSON.parse(localStorage.getItem('Staff'));
@@ -86,6 +86,7 @@ var BLStaff = function() {
 
   this.addNew = function(newItem) {
     this.context.push(newItem);
+    save(this.context);
     return true;
   };
 
@@ -110,7 +111,6 @@ var BLComment = function() {
   this.context = JSON.parse(localStorage.getItem('Comment'));
 
   this.getAll = function() {
-    // save(this.context);
     return this.context;
   };
 
@@ -155,6 +155,15 @@ console.log('BLComment', blComment.getAll());
 console.log('BLStaff', blStaff.getAll());
 console.log('BlDepartment', blDepartment.getAll());
 
+App.IndexController = Ember.ObjectController.extend({
+  actions: {
+    login: function() {
+      console.log('login');
+      this.transitionToRoute('dashboard');
+    }
+  }
+});
+
 App.StaffsRoute = Ember.Route.extend({
   model: function() {
     return blStaff.getAll();
@@ -163,8 +172,46 @@ App.StaffsRoute = Ember.Route.extend({
 
 App.StaffRoute = Ember.Route.extend({
   model: function(params) {
-    console.log('params', params, blStaff.getAll().findBy('id', params.staff_id));
-    return blStaff.getAll().findBy('id', params.staff_id);
+    staffId = params.staff_id
+    result = _.filter(blStaff.getAll(), function(item, i) {
+      return item.id == staffId;
+    });
+    return result[0] || null;
+  }
+});
+
+App.StaffsController = Ember.ObjectController.extend({
+  strQuery: '',
+  departmentId: null,
+  actions: {
+    filter: function() {
+      query = this.get('strQuery');
+      departmentId = this.get('departmentId');
+      result = _.filter(blStaff.getAll(), function(item, index) {
+        return ((item.fullName.indexOf(query) >= 0) &
+          ((departmentId == null) || ((departmentId != null) & (item.department == departmentId))));
+      })
+      this.set('model', result);
+    },
+    addNew: function() {
+      var newItem = {
+        id: moment().unix(),
+        fullName: 'Tâm Phạm',
+        dateOfBirth: '01/01/1990',
+        gender: 'Male',
+        address: '103 D1, Phường 25, Quận Bình Thạnh, Sài Gòn',
+        mobile: '01643652922',
+        skype: 'tampham47',
+        email: 'tampham47@live.com',
+        joinedDate: '01/09/2014',
+        avatar: 'tampham47.jpg',
+        department: 'Front-end'
+      };
+      blStaff.addNew(newItem);
+      var a = blStaff.getAll();
+      console.log('getAll', a);
+      this.set('model', a);
+    }
   }
 });
 
