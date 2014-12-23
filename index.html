@@ -74,9 +74,63 @@
         <dd class="active">{{#link-to 'staffs'}}Staff{{/link-to}}</dd>
       </dl>
     </div>
-    <div class="row">
-      <p>DASHBOARD</p>
+        <!-- dashboard Block -->
+    <div class="dashboard-block">
+        <div class="row">
+            <div class="large-9 large-centered columns">
+                <div class="chart-vertical">
+                    <span>100 staff</span>
+                    <span>90 staff</span>
+                    <span>80 staff</span>
+                    <span>70 staff</span>
+                    <span>60 staff</span>
+                    <span>50 staff</span>
+                    <span>40 staff</span>
+                    <span>30 staff</span>
+                    <span>20 staff</span>
+                    <span>10 staff</span>
+                    <span>0 staff</span>
+                </div><!-- chart-vertical -->
+                <div class="chart-content">
+                    <div class="inner-chart-content">
+                        <div>
+                            <strong>80 staff</strong>
+                            <span style="height: 402px;">&nbsp;</span>
+                        </div>
+                        <div>
+                            <strong>50 staff</strong>
+                            <span style="height: 252px;">&nbsp;</span>
+                        </div>
+                        <div>
+                            <strong>32 staff</strong>
+                            <span style="height: 172px;">&nbsp;</span>
+                        </div>
+                        <div>
+                            <strong>52 staff</strong>
+                            <span style="height: 286px;">&nbsp;</span>
+                        </div>
+                        <div>
+                            <strong>42 staff</strong>
+                            <span style="height: 207px;">&nbsp;</span>
+                        </div>
+                        <div>
+                            <strong>5 staff</strong>
+                            <span style="height: 32px;">&nbsp;</span>
+                        </div>
+                    </div>
+                </div><!-- chart-content -->
+                <div class="chart-horizontal">
+                    <span>Frontend</span>
+                    <span>QC</span>
+                    <span>Mobile</span>
+                    <span>PHP</span>
+                    <span>Java</span>
+                    <span>Admin</span>
+                </div><!-- chart-vertical -->
+            </div>
+        </div>
     </div>
+        <!-- End dashboard Block -->
   </script>
 
   <script id="staffs" type="text/x-handlebars">
@@ -94,7 +148,7 @@
           <h2>Filter:</h2>
           {{#link-to "staffs.new" href="javascript:;"}}Add{{/link-to}}
         </div>
-        </div>
+      </div>
       <div class="row">
         <div class="medium-5 medium-centered columns">
           <form action="#" id="filter-form" method="post">
@@ -161,6 +215,97 @@
       </div>
     </div>
     <!-- End Result Block -->
+    <!-- staff information Block -->
+    <div class="staff-info-block">
+      <div class="row">
+        <div class="title">
+          <h2>Staff information</h2>
+          <a href="javascript:;">Edit</a>
+        </div>
+      </div>
+      <div class="row staff-info">
+        <div class="large-5 columns">
+            <div class="row">
+                <div class="large-4 columns">
+                    <span>Fullname: </span>
+                </div>
+                <div class="large-8 columns">
+                    <span>Nguyen Thi Huyen Tran</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-4 columns">
+                    <span>Date of birth: </span>
+                </div>
+                <div class="large-8 columns">
+                    <span>21/04/1987</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-4 columns">
+                    <span>Gender: </span>
+                </div>
+                <div class="large-8 columns">
+                    <span>Female</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-4 columns">
+                    <span>Address: </span>
+                </div>
+                <div class="large-8 columns">
+                    <span>10 Tran Quoc Toan, P7, Q3, TPHCM</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-4 columns">
+                    <span>ID: </span>
+                </div>
+                <div class="large-8 columns">
+                    <span>371168456</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-4 columns">
+                    <span>Mobile: </span>
+                </div>
+                <div class="large-8 columns">
+                    <span>01234 12 34 56</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-4 columns">
+                    <span>Skype: </span>
+                </div>
+                <div class="large-8 columns">
+                    <span>sutrix.tran.nguyen</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-4 columns">
+                    <span>Email: </span>
+                </div>
+                <div class="large-8 columns">
+                    <span>tran.nguyen@sutrixmedia.com</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-4 columns">
+                    <span>Join Date: </span>
+                </div>
+                <div class="large-8 columns">
+                    <span>30/10/2010</span>
+                </div>
+            </div>
+        </div>
+        <div class="large-4 columns">
+            <div class="staff-photo">
+                <img src="img/img-staff-01.jpg" height="270" width="270" alt="Staff" />
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- End staff information Block -->
 
     <div class="result-block">{{outlet}}</div>
     <div class="result-block">{{outlet "comments"}}</div>
@@ -248,87 +393,123 @@
   </script>
 
   <script id="staffs/new" type="text/x-handlebars">
-    <div class="staff-new-block">
+<!-- staff information Block -->
+    <div class="staff-info-block">
       <div class="row">
-        <div class="medium-12 columns">
-          <h3>Staff Information</h3>
+        <div class="title">
+          <h2>Staff information</h2>
+        </div>
+      </div>
+      <div class="row staff-info-add">
+        <div class="large-5 columns">
+            <form action="#">
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="fullname">Fullname: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="fullname" name="fullname" placeholder="Nguyen Thi Huyen Tran" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="dateofbirth">Date of birth: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="dateofbirth"  name="dateofbirth" placeholder="21/04/1987" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="dateofbirth">Gender: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input id="male" type="radio" value="Red" name="gender">
+                        <label for="male">Male</label>
+                        <input id="female" type="radio" value="Blue" name="gender">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="address">Address: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="address"  name="address" placeholder="10 Tran Quoc Toan, P7, Q3, TPHCM" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="staffID">ID: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="staffID"  name="staffID" placeholder="371168456" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="mobile">Mobile: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="mobile"  name="mobile" placeholder="01234 12 34 56" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="skypeID">Skype: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="skypeID"  name="skypeID" placeholder="sutrix.tran.nguyen" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="email">Email: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="email"  name="email" placeholder="tran.nguyen@sutrixmedia.com" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="joindate">Join Date: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="joindate"  name="joindate" placeholder="30/10/2010" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="large-4 columns">
+            <div class="staff-photo">
+                <img src="img/img-staff-no-photo.jpg" height="270" width="270" alt="Staff" />
+                <div class="type-photo">Choose image<br />format available JPG, PNG, GIF</div>
+            </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="medium-8 columns">
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="fullName">Full Name</label>
-          <div class="col-md-8">
-            {{input class="form-control input-md" value=fullName}}
-          </div>
+<!-- End staff information Block -->
+<!-- History -->
+    <div class="history-block">
+        <div class="row">
+            <div class="medium-12 columns">
+                <h3>History:</h3>
+                <form action="#">
+                    <div class="row">
+                        <div class="medium-12 columns">
+                            <textarea rows="2" cols="50" placeholder=" "></textarea>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="large-1 large-centered columns">
+                            <a href="#" class="button btn-add">Add</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="dateOfBirth">Date of birth</label>
-          <div class="col-md-8">
-            {{input class="form-control input-md" value=dateOfBirth}}
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="gender">Gender</label>
-          <div class="col-md-8">
-            {{input class="form-control input-md" value=gender}}
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="address">Address</label>
-          <div class="col-md-8">
-            {{input class="form-control input-md" value=address}}
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="id">ID</label>
-          <div class="col-md-8">
-            {{input class="form-control input-md" value=id}}
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="mobile">Mobile</label>
-          <div class="col-md-8">
-            {{input class="form-control input-md" value=mobile}}
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="skype">Skype</label>
-          <div class="col-md-8">
-            {{input class="form-control input-md" value=skype}}
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="email">Email</label>
-          <div class="col-md-8">
-            {{input class="form-control input-md" value=email}}
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="joinedDate">Join Date</label>
-          <div class="col-md-8">
-            {{input class="form-control input-md" value=joinedDate}}
-          </div>
-        </div>
-        <div class="row text-center">
-          <a href="#" class="button btn-add" {{action add}}>Add</a>
-        </div>
-      </div>
-
-      <div class="medium-4 columns" style="text-align: center">
-        <img src="img/avatar.png" style="width:200px; height:200px">
-        <p>Avatar Here</p>
-      </div>
     </div>
+<!-- End History -->
   </script>
 
   <script id="comments" type="text/x-handlebars">
