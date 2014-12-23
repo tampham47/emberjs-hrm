@@ -30,10 +30,6 @@
     </main>
   </script>
 
-  <script id="index1" type="text/x-handlebars">
-    <p>Sutrix HRM</p>
-  </script>
-
   <script id="index" type="text/x-handlebars">
     <!-- Login Form -->
     <div class="row">
@@ -315,7 +311,7 @@
   </script>
 
   <script id="staffs/new" type="text/x-handlebars">
-<!-- staff information Block -->
+    <!-- staff information Block -->
     <div class="staff-info-block">
       <div class="row">
         <div class="title">
@@ -410,8 +406,9 @@
         </div>
       </div>
     </div>
-<!-- End staff information Block -->
-<!-- History -->
+    <!-- End staff information Block -->
+
+    <!-- History -->
     <div class="history-block">
         <div class="row">
             <div class="medium-12 columns">
@@ -431,7 +428,128 @@
             </div>
         </div>
     </div>
-<!-- End History -->
+    <!-- End History -->
+  </script>
+
+  <script id="staffs/edit" type="text/x-handlebars">
+    <!-- staff information Block -->
+    <div class="staff-info-block">
+      <div class="row">
+        <div class="title">
+          <h2>Staff information</h2>
+        </div>
+      </div>
+      <div class="row staff-info-add">
+        <div class="large-5 columns">
+            <form action="#">
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="fullname">Fullname: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="fullname" name="fullname" placeholder="Nguyen Thi Huyen Tran" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="dateofbirth">Date of birth: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="dateofbirth"  name="dateofbirth" placeholder="21/04/1987" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="dateofbirth">Gender: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input id="male" type="radio" value="Red" name="gender">
+                        <label for="male">Male</label>
+                        <input id="female" type="radio" value="Blue" name="gender">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="address">Address: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="address"  name="address" placeholder="10 Tran Quoc Toan, P7, Q3, TPHCM" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="staffID">ID: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="staffID"  name="staffID" placeholder="371168456" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="mobile">Mobile: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="mobile"  name="mobile" placeholder="01234 12 34 56" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="skypeID">Skype: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="skypeID"  name="skypeID" placeholder="sutrix.tran.nguyen" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="email">Email: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="email"  name="email" placeholder="tran.nguyen@sutrixmedia.com" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="joindate">Join Date: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input type="text" id="joindate"  name="joindate" placeholder="30/10/2010" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="large-4 columns">
+            <div class="staff-photo">
+                <img src="img/img-staff-no-photo.jpg" height="270" width="270" alt="Staff" />
+                <div class="type-photo">Choose image<br />format available JPG, PNG, GIF</div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- End staff information Block -->
+
+    <!-- History -->
+    <div class="history-block">
+        <div class="row">
+            <div class="medium-12 columns">
+                <h3>History:</h3>
+                <form action="#">
+                    <div class="row">
+                        <div class="medium-12 columns">
+                            <textarea rows="2" cols="50" placeholder=" "></textarea>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="large-1 large-centered columns">
+                            <a href="#" class="button btn-add">Add</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End History -->
   </script>
 
   <script id="comments" type="text/x-handlebars">
