@@ -175,6 +175,7 @@ body {
   width: 270px;
   margin-top: 6px;
 }
+.staff-photo input[name="type-photo"] {display: none;}
 .type-photo {
   position: absolute;
   bottom: 0;
@@ -185,16 +186,16 @@ body {
   line-height: 17px;
   color: #FFF;
   cursor: pointer;
-   background-color: rgba(0, 0, 0, 0.8);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000);
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";
+  background-color: rgba(0, 0, 0, 0.8);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";
 }
 .type-photo:before {
   position: absolute;
   width: 21px;
   height: 19px;
   content: "";
-  background: url(../img/icon-photo.png) no-repeat 0 0;
+  background: url(../../img/icon-photo.png) no-repeat 0 0;
   top: 14px;
   left: 10px;
 }
