@@ -58,7 +58,6 @@ var departmentList = [
 // class controll business function for staff object
 var BLStaff = function() {
   var save = function(data) {
-    console.log('save', data);
     localStorage.setItem('Staff', JSON.stringify(data));
     return true;
   };
@@ -92,7 +91,6 @@ var BLStaff = function() {
 var BLComment = function() {
 
   var save = function(data) {
-    console.log('save', data);
     localStorage.setItem('Comment', JSON.stringify(data));
     return true
   };
@@ -144,9 +142,6 @@ var blComment = new BLComment();
 var blStaff = new BLStaff();
 var blDepartment = new BLDepartment();
 
-console.log('BLComment', blComment.getAll());
-console.log('BLStaff', blStaff.getAll());
-console.log('BlDepartment', blDepartment.getAll());
 
 var App = Ember.Application.create({});
 
@@ -157,15 +152,6 @@ App.Router.map(function() {
     this.resource('staff', {path: ':staff_id'});
   });
   this.resource('staffs.new');
-});
-
-App.IndexController = Ember.ObjectController.extend({
-  actions: {
-    login: function() {
-      console.log('login');
-      this.transitionToRoute('dashboard');
-    }
-  }
 });
 
 App.StaffsRoute = Ember.Route.extend({
@@ -200,8 +186,22 @@ App.StaffRoute = Ember.Route.extend({
 App.CommentsRoute = Ember.Route.extend({
   model: function(params) {
     var userId = params.staff_id;
-    console.log('staffId', userId);
     return blComment.getByUser(userId);
+  }
+});
+
+App.IndexController = Ember.ObjectController.extend({
+  userName: '',
+  password: '',
+  actions: {
+    login: function() {
+      var userName = this.get('userName'),
+        password = this.get('password');
+      if ((userName != 'soanguyen69') & (password != 'hellongaymoi'))
+        alert('Please login with soanguyen69/hellongaymoi!');
+      else
+        this.transitionToRoute('dashboard');
+    }
   }
 });
 
@@ -241,7 +241,6 @@ App.StaffsController = Ember.ObjectController.extend({
 App.StaffsNewController = Ember.ObjectController.extend({
   actions: {
     add: function() {
-      console.log('StaffsNewController Add');
       this.transitionToRoute('staffs');
     }
   }
@@ -260,12 +259,10 @@ App.CommentsController = Ember.ObjectController.extend({
         comment: this.get('comment')
       };
       blComment.addNew(newComment);
-      console.log('comments add', newComment);
       this.set('model', blComment.getByUser(userId));
     },
     remove: function(content) {
       blComment.remove(content.id);
-      console.log('remove', content);
       this.set('model', blComment.getByUser(this.get('userId')));
     }
   }
