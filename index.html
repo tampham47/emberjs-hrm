@@ -140,32 +140,34 @@
       </div>
       <div class="row">
         <div class="medium-5 medium-centered columns">
-          <form action="#" id="filter-form" method="post">
-            <div class="row">
-              <div class="medium-3 columns">
-                <label for="name">Name: </label>
+          <div class="filter-form">
+            <form action="#" id="filter-form" method="post">
+              <div class="row">
+                <div class="medium-4 columns">
+                  <label for="name">Name: </label>
+                </div>
+                <div class="medium-8 columns">
+                  {{input type="text" id="name" name="name" placeholder="" value=strQuery }}
+                </div>
               </div>
-              <div class="medium-9 columns">
-                {{input type="text" id="name" name="name" placeholder="" value=strQuery }}
+              <div class="row">
+                <div class="medium-4 columns">
+                  <label >Department: </label>
+                </div>
+                <div class="medium-8 columns">
+                  <select>
+                    <option value="husker">FrontEnd</option>
+                    <option value="starbuck">Java</option>
+                    <option value="hotdog">QC</option>
+                    <option value="apollo">HR</option>
+                  </select>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="medium-3 columns">
-                <label >Department: </label>
+              <div class="row text-center">
+                  <a href="#" class="button btn-submit" {{action filter}}>Apply</a>
               </div>
-              <div class="medium-9 columns">
-                <select>
-                  <option value="husker">FrontEnd</option>
-                  <option value="starbuck">Java</option>
-                  <option value="hotdog">QC</option>
-                  <option value="apollo">HR</option>
-                </select>
-              </div>
-            </div>
-            <div class="row text-center">
-                <a href="#" class="button btn-submit" {{action filter}}>Apply</a>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -405,21 +407,19 @@
     <!-- History -->
     <div class="history-block">
         <div class="row">
-            <div class="medium-12 columns">
-                <h3>History:</h3>
-                <form action="#">
-                    <div class="row">
-                        <div class="medium-12 columns">
-                            <textarea rows="2" cols="50" placeholder=" "></textarea>
-                        </div>
-                    </div>
-                    <div class="row text-center">
-                        <div class="large-1 large-centered columns">
-                            <a href="#" class="button btn-add" {{action add}}>Add</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
+          <h3>History:</h3>
+          <form action="#">
+              <div class="row">
+                  <div class="medium-12 columns">
+                      <textarea rows="2" cols="50" placeholder=" "></textarea>
+                  </div>
+              </div>
+              <div class="row text-center">
+                  <div class="large-1 large-centered columns">
+                      <a href="#" class="button btn-add" {{action add}}>Add</a>
+                  </div>
+              </div>
+          </form>
         </div>
     </div>
     <!-- End History -->
@@ -526,21 +526,19 @@
     <!-- History -->
     <div class="history-block">
         <div class="row">
-            <div class="medium-12 columns">
-                <h3>History:</h3>
-                <form action="#">
-                    <div class="row">
-                        <div class="medium-12 columns">
-                            <textarea rows="2" cols="50" placeholder=" "></textarea>
-                        </div>
+            <h3>History:</h3>
+            <form action="#">
+                <div class="row">
+                    <div class="medium-12 columns">
+                        <textarea rows="2" cols="50" placeholder=" "></textarea>
                     </div>
-                    <div class="row text-center">
-                        <div class="large-1 large-centered columns">
-                            <a href="#" class="button btn-add">Add</a>
-                        </div>
+                </div>
+                <div class="row text-center">
+                    <div class="large-1 large-centered columns">
+                        <a href="#" class="button btn-add">Add</a>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
     <!-- End History -->
@@ -550,28 +548,26 @@
     <!-- History -->
     <div class="history-block">
       <div class="row">
-        <div class="medium-12 columns">
-          <h3>History</h3>
-          {{#each model}}
-          <div data-alert class="alert-box secondary">
-            <p>{{dateCreated}}</p>
-            <hr >
-            {{comment}}
-            <a href="#" class="close" {{action remove this}}>&times;</a>
-          </div>
-          {{/each}}
-          <div class="comments-form">
-            <form action="#" id="comments-form" method="post">
-              <div class="row">
-                <div class="medium-12 columns">
-                  {{textarea rows="2" cols="50" value=comment}}
-                </div>
+        <h3>History</h3>
+        {{#each model}}
+        <div data-alert class="alert-box secondary">
+          <p>{{dateCreated}}</p>
+          <hr >
+          {{comment}}
+          <a href="#" class="close" {{action remove this}}>&times;</a>
+        </div>
+        {{/each}}
+        <div class="comments-form">
+          <form action="#" id="comments-form" method="post">
+            <div class="row">
+              <div class="medium-12 columns">
+                {{textarea rows="2" cols="50" value=comment}}
               </div>
-              <div class="row text-center">
-                <a href="#" class="button btn-add" {{action add}}>Add</a>
-              </div>
-            </form>
-          </div>
+            </div>
+            <div class="row text-center">
+              <a href="#" class="button btn-add" {{action add}}>Add</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>
