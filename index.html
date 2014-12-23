@@ -326,7 +326,7 @@
                         <label for="fullname">Fullname: </label>
                     </div>
                     <div class="large-8 columns">
-                        <input type="text" id="fullname" name="fullname" placeholder="Nguyen Thi Huyen Tran" />
+                      {{input value=fullName type="text" id="fullname" name="fullname" placeholder="Nguyen Thi Huyen Tran"}}
                     </div>
                 </div>
                 <div class="row">
@@ -334,7 +334,7 @@
                         <label for="dateofbirth">Date of birth: </label>
                     </div>
                     <div class="large-8 columns">
-                        <input type="text" id="dateofbirth"  name="dateofbirth" placeholder="21/04/1987" />
+                      {{input value=dateOfBirth type="text" id="dateofbirth"  name="dateofbirth" placeholder="21/04/1987"}}
                     </div>
                 </div>
                 <div class="row">
@@ -353,7 +353,7 @@
                         <label for="address">Address: </label>
                     </div>
                     <div class="large-8 columns">
-                        <input type="text" id="address"  name="address" placeholder="10 Tran Quoc Toan, P7, Q3, TPHCM" />
+                      {{input value=address type="text" id="address"  name="address" placeholder="10 Tran Quoc Toan, P7, Q3, TPHCM"}}
                     </div>
                 </div>
                 <div class="row">
@@ -361,7 +361,7 @@
                         <label for="staffID">ID: </label>
                     </div>
                     <div class="large-8 columns">
-                        <input type="text" id="staffID"  name="staffID" placeholder="371168456" />
+                      {{input value=id type="text" id="staffID"  name="staffID" placeholder="371168456"}}
                     </div>
                 </div>
                 <div class="row">
@@ -369,7 +369,7 @@
                         <label for="mobile">Mobile: </label>
                     </div>
                     <div class="large-8 columns">
-                        <input type="text" id="mobile"  name="mobile" placeholder="01234 12 34 56" />
+                      {{input value=mobile type="text" id="mobile"  name="mobile" placeholder="01234 12 34 56"}}
                     </div>
                 </div>
                 <div class="row">
@@ -377,7 +377,7 @@
                         <label for="skypeID">Skype: </label>
                     </div>
                     <div class="large-8 columns">
-                        <input type="text" id="skypeID"  name="skypeID" placeholder="sutrix.tran.nguyen" />
+                      {{input value=skype type="text" id="skypeID"  name="skypeID" placeholder="sutrix.tran.nguyen"}}
                     </div>
                 </div>
                 <div class="row">
@@ -385,7 +385,7 @@
                         <label for="email">Email: </label>
                     </div>
                     <div class="large-8 columns">
-                        <input type="text" id="email"  name="email" placeholder="tran.nguyen@sutrixmedia.com" />
+                      {{input value=email type="text" id="email"  name="email" placeholder="tran.nguyen@sutrixmedia.com"}}
                     </div>
                 </div>
                 <div class="row">
@@ -393,7 +393,7 @@
                         <label for="joindate">Join Date: </label>
                     </div>
                     <div class="large-8 columns">
-                        <input type="text" id="joindate"  name="joindate" placeholder="30/10/2010" />
+                      {{input value=joinedDate type="text" id="joindate"  name="joindate" placeholder="30/10/2010" }}
                     </div>
                 </div>
             </form>
@@ -421,7 +421,7 @@
                     </div>
                     <div class="row text-center">
                         <div class="large-1 large-centered columns">
-                            <a href="#" class="button btn-add">Add</a>
+                            <a href="#" class="button btn-add" {{action add}}>Add</a>
                         </div>
                     </div>
                 </form>

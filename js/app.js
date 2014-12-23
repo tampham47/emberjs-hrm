@@ -241,6 +241,21 @@ App.StaffsController = Ember.ObjectController.extend({
 App.StaffsNewController = Ember.ObjectController.extend({
   actions: {
     add: function() {
+      console.log('add');
+      var newItem = {
+        id: moment().format('X'),
+        fullName: 'Tâm Phạm',
+        dateOfBirth: '01/01/1990',
+        gender: 'Male',
+        address: '103 D1, Phường 25, Quận Bình Thạnh, Sài Gòn',
+        mobile: '01643652922',
+        skype: 'tampham47',
+        email: 'tampham47@live.com',
+        joinedDate: '01/09/2014',
+        avatar: 'tampham47.jpg',
+        department: 'Front-end'
+      };
+      blStaff.addNew(newItem);
       this.transitionToRoute('staffs');
     }
   }
