@@ -1,10 +1,10 @@
 /*
-    @grey-dark: #dfdfdf;
-    @grey-light: #efeded;
-    @grey-pp: #f0eeee;
-    @orange: #ff8a00;
-    @border-color: #a8acad;
-    @border-shadow-color: #e3e3e3;
+  @grey-dark: #dfdfdf;
+  @grey-light: #efeded;
+  @grey-pp: #f0eeee;
+  @orange: #ff8a00;
+  @border-color: #a8acad;
+  @border-shadow-color: #e3e3e3;
 */
 /*Block*/
 body {
@@ -54,6 +54,9 @@ body {
   background: #ff8a00;
   color: #fff;
   text-decoration: none;
+}
+.btn-submit:focus, .btn-ok:focus, .btn-add:focus {
+  background: #ff8a00;
 }
 .ct-tabs {
   padding-top: 19px;
@@ -111,10 +114,10 @@ body {
 /*End login*/
 /* Filter Block */
 .filter-block input {
-    padding: 0 8px;
+  padding: 0 8px;
 }
 .filter-form form {
-    margin-top: 12px;
+  margin-top: 12px;
 }
 .filter-form label {
   margin-left: 17px;
@@ -128,57 +131,57 @@ body {
 /* End Filter Block */
 /*Result Block*/
 .result-block table {
-    width: 100%;
-    border-spacing: 0;
-    background: transparent;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    margin-top: -1px;
+  width: 100%;
+  border-spacing: 0;
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin-top: -1px;
 }
 .result-block table thead, .result-block table tbody tr {
-    background: transparent;
+  background: transparent;
 }
 .result-block table thead th {
-    font-weight: normal;
+  font-weight: normal;
 }
 .result-block table tbody tr:hover{
-    background: #ff8a00;
-    cursor: pointer;
+  background: #ff8a00;
+  cursor: pointer;
 }
 .result-block table tbody tr td:first-child {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 /* End Result Block*/
 /* history-block */
 .history-block h3 {
-    font-size: 18px;
-    color: #ff8a00;
-    font-weight: bold;
-    margin-bottom: 13px;
+  font-size: 18px;
+  color: #ff8a00;
+  font-weight: bold;
+  margin-bottom: 13px;
 }
 .history-block p {
-    font-weight: bold;
-    margin-bottom: 4px;
-    font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 14px;
 }
 .history-block .alert-box {
-    font-size: 14px;
-    background-color: #f0eeee;
-    border: none;
-    overflow: hidden;
-    padding: 6px 10px 10px;
-    line-height: 1.3em;
-    margin-bottom: 10px;
+  font-size: 14px;
+  background-color: #f0eeee;
+  border: none;
+  overflow: hidden;
+  padding: 6px 10px 10px;
+  line-height: 1.3em;
+  margin-bottom: 10px;
 }
 .history-block .alert-box a {
-    top: 25%;
+  top: 35%;;
 }
 .history-block hr{
-    margin: 0 -25px 8px -15px;
+  margin: 0 -25px 8px -15px;
 }
 .comments-form textarea {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 /* End history-block */
 
@@ -222,9 +225,9 @@ body {
 }
 
 .staff-info-block input[type="text"] {
-    padding: 0 8px;
-    height: 23px;
-    margin-bottom: 0.71em;
+  padding: 0 8px;
+  height: 23px;
+  margin-bottom: 0.71em;
 }
 
 .staff-info-block input[type="radio"] {
