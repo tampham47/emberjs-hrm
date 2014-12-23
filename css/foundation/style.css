@@ -84,11 +84,11 @@ body {
 /*Login*/
 .login-form {
     margin-top: 97px;
+    /*margin-left: 21px;*/
 }
 .login-form label {
     font-size: 14px;
     color: #000;
-    margin-left: 18px;
 }
 .login-form input {
     height: 23px;
@@ -151,7 +151,7 @@ body {
     margin-bottom: 10px;
 }
 .history-block .alert-box a {
-    top: 20%;
+    top: 25%;
 }
 .history-block hr{
     margin: 0 -25px 8px -15px;
