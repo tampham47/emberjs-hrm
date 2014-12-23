@@ -215,6 +215,12 @@
       </div>
     </div>
     <!-- End Result Block -->
+
+    <div class="result-block">{{outlet}}</div>
+    <div class="result-block">{{outlet "comments"}}</div>
+  </script>
+
+  <script id="staff" type="text/x-handlebars">
     <!-- staff information Block -->
     <div class="staff-info-block">
       <div class="row">
@@ -230,7 +236,7 @@
                     <span>Fullname: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>Nguyen Thi Huyen Tran</span>
+                    <span>{{fullName}}</span>
                 </div>
             </div>
             <div class="row">
@@ -238,7 +244,7 @@
                     <span>Date of birth: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>21/04/1987</span>
+                    <span>{{dateOfBirth}}</span>
                 </div>
             </div>
             <div class="row">
@@ -246,7 +252,7 @@
                     <span>Gender: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>Female</span>
+                    <span>{{gender}}</span>
                 </div>
             </div>
             <div class="row">
@@ -254,7 +260,7 @@
                     <span>Address: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>10 Tran Quoc Toan, P7, Q3, TPHCM</span>
+                    <span>{{address}}</span>
                 </div>
             </div>
             <div class="row">
@@ -262,7 +268,7 @@
                     <span>ID: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>371168456</span>
+                    <span>{{id}}</span>
                 </div>
             </div>
             <div class="row">
@@ -270,7 +276,7 @@
                     <span>Mobile: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>01234 12 34 56</span>
+                    <span>{{mobile}}</span>
                 </div>
             </div>
             <div class="row">
@@ -278,7 +284,7 @@
                     <span>Skype: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>sutrix.tran.nguyen</span>
+                    <span>{{skype}}</span>
                 </div>
             </div>
             <div class="row">
@@ -286,7 +292,7 @@
                     <span>Email: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>tran.nguyen@sutrixmedia.com</span>
+                    <span>{{email}}</span>
                 </div>
             </div>
             <div class="row">
@@ -294,7 +300,7 @@
                     <span>Join Date: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>30/10/2010</span>
+                    <span>{{joinedDate}}</span>
                 </div>
             </div>
         </div>
@@ -306,90 +312,6 @@
       </div>
     </div>
     <!-- End staff information Block -->
-
-    <div class="result-block">{{outlet}}</div>
-    <div class="result-block">{{outlet "comments"}}</div>
-  </script>
-
-  <script id="staff" type="text/x-handlebars">
-    <div class="history-block">
-      <div class="row">
-        <div class="medium-12 columns">
-          <h3>Staff Information</h3>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="medium-8 columns">
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="fullName">Full Name</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{fullName}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="dateOfBirth">Date of birth</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{dateOfBirth}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="gender">Gender</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{gender}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="address">Address</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{address}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="id">ID</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{id}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="mobile">Mobile</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{mobile}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="skype">Skype</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{skype}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="email">Email</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{email}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="joinedDate">Join Date</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{joinedDate}}</b>
-          </div>
-        </div>
-      </div>
-
-      <div class="medium-4 columns" style="text-align: center">
-        <img src="img/avatar.png" style="width:200px; height:200px">
-        <p>Avatar Here</p>
-      </div>
-    </div>
   </script>
 
   <script id="staffs/new" type="text/x-handlebars">
