@@ -25,10 +25,6 @@
     </main>
   </script>
 
-  <script id="index1" type="text/x-handlebars">
-    <p>Sutrix HRM</p>
-  </script>
-
   <script id="index" type="text/x-handlebars">
     <!-- Login Form -->
     <div class="row">
@@ -40,7 +36,7 @@
                 <label for="usename">Usename: </label>
               </div>
               <div class="medium-9 columns">
-                <input type="text" id="usename" name="usename" placeholder=" " />
+                {{input value=userName type="text" id="usename" name="usename" placeholder=""}}
               </div>
             </div>
             <div class="row">
@@ -48,7 +44,7 @@
                 <label for="password">Password: </label>
               </div>
               <div class="medium-9 columns">
-                <input type="password" id="password" name="password" placeholder=" " />
+                {{input value=password type="password" id="password" name="password" placeholder=" "}}
                 <!-- <small class="error">Invalid entry</small> class="error"-->
               </div>
             </div>
@@ -210,6 +206,12 @@
       </div>
     </div>
     <!-- End Result Block -->
+
+    <div class="result-block">{{outlet}}</div>
+    <div class="result-block">{{outlet "comments"}}</div>
+  </script>
+
+  <script id="staff" type="text/x-handlebars">
     <!-- staff information Block -->
     <div class="staff-info-block">
       <div class="row">
@@ -225,7 +227,7 @@
                     <span>Fullname: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>Nguyen Thi Huyen Tran</span>
+                    <span>{{fullName}}</span>
                 </div>
             </div>
             <div class="row">
@@ -233,7 +235,7 @@
                     <span>Date of birth: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>21/04/1987</span>
+                    <span>{{dateOfBirth}}</span>
                 </div>
             </div>
             <div class="row">
@@ -241,7 +243,7 @@
                     <span>Gender: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>Female</span>
+                    <span>{{gender}}</span>
                 </div>
             </div>
             <div class="row">
@@ -249,7 +251,7 @@
                     <span>Address: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>10 Tran Quoc Toan, P7, Q3, TPHCM</span>
+                    <span>{{address}}</span>
                 </div>
             </div>
             <div class="row">
@@ -257,7 +259,7 @@
                     <span>ID: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>371168456</span>
+                    <span>{{id}}</span>
                 </div>
             </div>
             <div class="row">
@@ -265,7 +267,7 @@
                     <span>Mobile: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>01234 12 34 56</span>
+                    <span>{{mobile}}</span>
                 </div>
             </div>
             <div class="row">
@@ -273,7 +275,7 @@
                     <span>Skype: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>sutrix.tran.nguyen</span>
+                    <span>{{skype}}</span>
                 </div>
             </div>
             <div class="row">
@@ -281,7 +283,7 @@
                     <span>Email: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>tran.nguyen@sutrixmedia.com</span>
+                    <span>{{email}}</span>
                 </div>
             </div>
             <div class="row">
@@ -289,7 +291,7 @@
                     <span>Join Date: </span>
                 </div>
                 <div class="large-8 columns">
-                    <span>30/10/2010</span>
+                    <span>{{joinedDate}}</span>
                 </div>
             </div>
         </div>
@@ -301,94 +303,131 @@
       </div>
     </div>
     <!-- End staff information Block -->
-
-    <div class="result-block">{{outlet}}</div>
-    <div class="result-block">{{outlet "comments"}}</div>
-  </script>
-
-  <script id="staff" type="text/x-handlebars">
-    <div class="history-block">
-      <div class="row">
-        <div class="medium-12 columns">
-          <h3>Staff Information</h3>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="medium-8 columns">
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="fullName">Full Name</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{fullName}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="dateOfBirth">Date of birth</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{dateOfBirth}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="gender">Gender</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{gender}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="address">Address</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{address}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="id">ID</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{id}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="mobile">Mobile</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{mobile}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="skype">Skype</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{skype}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="email">Email</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{email}}</b>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="joinedDate">Join Date</label>
-          <div class="col-md-8">
-            <b class="form-control input-md">{{joinedDate}}</b>
-          </div>
-        </div>
-      </div>
-
-      <div class="medium-4 columns" style="text-align: center">
-        <img src="img/avatar.png" style="width:200px; height:200px">
-        <p>Avatar Here</p>
-      </div>
-    </div>
   </script>
 
   <script id="staffs/new" type="text/x-handlebars">
-<!-- staff information Block -->
+    <!-- staff information Block -->
+    <div class="staff-info-block">
+      <div class="row">
+        <div class="title">
+          <h2>Staff information</h2>
+        </div>
+      </div>
+      <div class="row staff-info-add">
+        <div class="large-5 columns">
+            <form action="#">
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="fullname">Fullname: </label>
+                    </div>
+                    <div class="large-8 columns">
+                      {{input value=fullName type="text" id="fullname" name="fullname" placeholder="Nguyen Thi Huyen Tran"}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="dateofbirth">Date of birth: </label>
+                    </div>
+                    <div class="large-8 columns">
+                      {{input value=dateOfBirth type="text" id="dateofbirth"  name="dateofbirth" placeholder="21/04/1987"}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="dateofbirth">Gender: </label>
+                    </div>
+                    <div class="large-8 columns">
+                        <input id="male" type="radio" value="Red" name="gender">
+                        <label for="male">Male</label>
+                        <input id="female" type="radio" value="Blue" name="gender">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="address">Address: </label>
+                    </div>
+                    <div class="large-8 columns">
+                      {{input value=address type="text" id="address"  name="address" placeholder="10 Tran Quoc Toan, P7, Q3, TPHCM"}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="staffID">ID: </label>
+                    </div>
+                    <div class="large-8 columns">
+                      {{input value=id type="text" id="staffID"  name="staffID" placeholder="371168456"}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="mobile">Mobile: </label>
+                    </div>
+                    <div class="large-8 columns">
+                      {{input value=mobile type="text" id="mobile"  name="mobile" placeholder="01234 12 34 56"}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="skypeID">Skype: </label>
+                    </div>
+                    <div class="large-8 columns">
+                      {{input value=skype type="text" id="skypeID"  name="skypeID" placeholder="sutrix.tran.nguyen"}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="email">Email: </label>
+                    </div>
+                    <div class="large-8 columns">
+                      {{input value=email type="text" id="email"  name="email" placeholder="tran.nguyen@sutrixmedia.com"}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label for="joindate">Join Date: </label>
+                    </div>
+                    <div class="large-8 columns">
+                      {{input value=joinedDate type="text" id="joindate"  name="joindate" placeholder="30/10/2010" }}
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="large-4 columns">
+            <div class="staff-photo">
+                <img src="img/img-staff-no-photo.jpg" height="270" width="270" alt="Staff" />
+                <div class="type-photo">Choose image<br />format available JPG, PNG, GIF</div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- End staff information Block -->
+
+    <!-- History -->
+    <div class="history-block">
+        <div class="row">
+            <div class="medium-12 columns">
+                <h3>History:</h3>
+                <form action="#">
+                    <div class="row">
+                        <div class="medium-12 columns">
+                            <textarea rows="2" cols="50" placeholder=" "></textarea>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="large-1 large-centered columns">
+                            <a href="#" class="button btn-add" {{action add}}>Add</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End History -->
+  </script>
+
+  <script id="staffs/edit" type="text/x-handlebars">
+    <!-- staff information Block -->
     <div class="staff-info-block">
       <div class="row">
         <div class="title">
@@ -483,8 +522,9 @@
         </div>
       </div>
     </div>
-<!-- End staff information Block -->
-<!-- History -->
+    <!-- End staff information Block -->
+
+    <!-- History -->
     <div class="history-block">
         <div class="row">
             <div class="medium-12 columns">
@@ -504,7 +544,7 @@
             </div>
         </div>
     </div>
-<!-- End History -->
+    <!-- End History -->
   </script>
 
   <script id="comments" type="text/x-handlebars">
