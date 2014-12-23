@@ -8,90 +8,101 @@
 */
 /*Block*/
 body {
-    background-image: url('../../img/background.jpg');
-    font-size: 14px;
+  background-image: url('../../img/background.jpg');
+  font-size: 14px;
 }
 .logo-hrm {
-    padding-top: 30px;
+  padding-top: 30px;
 }
 .title {
-    background: #dfdfdf;
-    padding: 4px 10px 0;
-    margin-bottom: 8px;
+  background: #dfdfdf;
+  padding: 4px 10px 0;
+  margin-bottom: 8px;
 }
 .title h2 {
-    display: inline-block;
-    font-size: 14px;
-    font-weight: bold;
-    color: #000;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
 }
 .title a {
-    float: right;
-    text-decoration: underline;
-    color: #000;
-    font-size: 14px;
-    font-weight: bold;
+  float: right;
+  text-decoration: underline;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
 }
 .button {
-    color: #000;
-    background: #ff8a00;
+  color: #000;
+  background: #ff8a00;
 }
 .btn-ok {
-    padding: 2px 20px;
+  padding: 2px 20px;
+  margin-top: 11px;
+  margin-left: 6px;
 }
 .btn-submit {
-    padding: 2px 11px;
+  padding: 2px 11px;
 }
 .btn-add {
-    padding: 2px 15px;
+  padding: 2px 15px;
 }
 .btn-submit:hover, .btn-ok:hover, .btn-add:hover {
-    background: #ff8a00;
-    color: #fff;
-    text-decoration: none;
+  background: #ff8a00;
+  color: #fff;
+  text-decoration: none;
 }
 .ct-tabs {
-    padding-top: 20px;
-    margin-bottom: 12px;
+  padding-top: 20px;
+  margin-bottom: 12px;
 }
 .ct-tabs dd {
-    display: inline-block;
+  display: inline-block;
 }
 .ct-tabs dd:first-child a {
-    border-right: 2px solid #000;
-    padding-right: 5px;
+  border-right: 2px solid #000;
+  padding-right: 5px;
 }
 .ct-tabs dd:last-child a {
-    padding-left: 3px;
+  padding-left: 3px;
 }
 .ct-tabs dd > a{
-    background: transparent;
-    color: #000;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 0;
-    text-decoration: none;
+  background: transparent;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0;
+  text-decoration: none;
 }
 .ct-tabs dd > a.active{
-    color: #ff8a00;
-    background: transparent;
+  color: #ff8a00;
+  background: transparent;
 }
 .ct-tabs dd > a:hover {
-    background: transparent;
-    text-decoration: none;
+  background: transparent;
+  text-decoration: none;
 }
 /*End Block*/
 /*Login*/
 .login-form {
-    margin-top: 97px;
-    /*margin-left: 21px;*/
+  margin-top: 97px;
+  margin-left: 6px;
 }
 .login-form label {
-    font-size: 14px;
-    color: #000;
+  font-size: 14px;
+  color: #000;
+  padding-top: 3px;
 }
 .login-form input {
-    height: 23px;
+  height: 23px;
+  margin-left: -20px;
+  margin-bottom: 9px;
+}
+.login-form .ct-error {
+  margin-left: -20px;
+  margin-right: 20px;
+  padding: 2.5px;
+  margin-top: -9px;
 }
 /*End login*/
 /* Filter Block */
