@@ -12,7 +12,7 @@ var staffs = [
     email: 'tampham47@live.com',
     joinedDate: '01/09/2014',
     avatar: 'tampham47.jpg',
-    department: 'Front-end'
+    department: 'Frontend'
   },
   {
     id: '2',
@@ -25,7 +25,7 @@ var staffs = [
     email: 'soanguyen69@live.com',
     joinedDate: '01/09/2014',
     avatar: 'soanguyen69.jpg',
-    department: 'Front-end'
+    department: 'Frontend'
   }
 ];
 
@@ -47,12 +47,12 @@ var comments = [
 ];
 
 var departmentList = [
-  { id: '1', name: 'Front-end' },
-  { id: '2', name: 'PHP' },
-  { id: '3', name: 'Java' },
-  { id: '4', name: 'QC' },
-  { id: '5', name: 'Mobile' },
-  { id: '6', name: 'Admin' }
+  { id: 'Frontend', name: 'Frontend' },
+  { id: 'PHP', name: 'PHP' },
+  { id: 'Java', name: 'Java' },
+  { id: 'QC', name: 'QC' },
+  { id: 'Mobile', name: 'Mobile' },
+  { id: 'Admin', name: 'Admin' }
 ];
 
 // class controll business function for staff object
@@ -138,12 +138,10 @@ var init = function() {
 // init function for the first at all
 init();
 
-var blComment = new BLComment();
-var blStaff = new BLStaff();
-var blDepartment = new BLDepartment();
-
-
-var App = Ember.Application.create({});
+var blComment = new BLComment(),
+  blStaff = new BLStaff(),
+  blDepartment = new BLDepartment(),
+  App = Ember.Application.create({});
 
 App.Router.map(function() {
   this.resource('auth');
@@ -236,10 +234,14 @@ App.StaffsController = Ember.ObjectController.extend({
         email: 'tampham47@live.com',
         joinedDate: '01/09/2014',
         avatar: 'tampham47.jpg',
-        department: 'Front-end'
+        department: 'Frontend'
       };
       blStaff.addNew(newItem);
       this.set('model', blStaff.getAll());
+    },
+    select: function(content) {
+      console.log(content.id);
+      this.transitionToRoute('staff', content);
     }
   }
 });
@@ -247,24 +249,22 @@ App.StaffsController = Ember.ObjectController.extend({
 App.StaffsNewController = Ember.ObjectController.extend({
   actions: {
     add: function() {
-      console.log('add', this.get('model'));
+      // add new staff
       var newItem = this.get('model');
       newItem.id = moment().format('X');
-      newItem.department = 'Front-end';
-      // var newItem = {
-      //   id: moment().format('X'),
-      //   fullName: 'Tâm Phạm',
-      //   dateOfBirth: '01/01/1990',
-      //   gender: 'Male',
-      //   address: '103 D1, Phường 25, Quận Bình Thạnh, Sài Gòn',
-      //   mobile: '01643652922',
-      //   skype: 'tampham47',
-      //   email: 'tampham47@live.com',
-      //   joinedDate: '01/09/2014',
-      //   avatar: 'tampham47.jpg',
-      //   department: 'Front-end'
-      // };
+      newItem.department = 'Frontend';
       blStaff.addNew(newItem);
+      // add new comment if it has values.
+      if (newItem.comment != null)
+        var newComment = {
+          id: moment().format('X'),
+          creatorId: '',
+          userId: newItem.id,
+          dateCreated: moment().format('MM/DD/YYYY'),
+          comment: newItem.comment
+        };
+        blComment.addNew(newComment);
+      // redirect to staffs page
       this.transitionToRoute('staffs');
     }
   }
