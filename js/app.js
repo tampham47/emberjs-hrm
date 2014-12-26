@@ -97,9 +97,9 @@ App.StaffsController = Ember.ObjectController.extend({
   departmentId: null,
   actions: {
     filter: function() {
-      var query = this.get('strQuery');
-      var departmentId = this.get('departmentId');
-      var result = blStaff.filter(query, departmentId, 5);
+      var query = this.get('strQuery'),
+        departmentId = this.get('departmentId'),
+        result = blStaff.filter(query, departmentId, 5);
       this.set('model', result);
     },
     select: function(content) {

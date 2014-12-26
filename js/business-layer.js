@@ -21,6 +21,7 @@ var BLStaff = function() {
   };
 
   this.filter = function(query, departmentId, limit) {
+    // filter with query string and departmentId
     var result = _.filter(this.context, function(item, index) {
       return ((item.fullName.toLowerCase().indexOf(query.toLowerCase()) >= 0) &
         ((departmentId == null) || ((departmentId != null) & (item.department == departmentId))));
@@ -30,6 +31,7 @@ var BLStaff = function() {
       var lResult = _.filter(result, function(item, index){
         return index < limit;
       });
+      // limit the result
       return lResult;
     }
     else
