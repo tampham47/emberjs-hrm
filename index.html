@@ -220,9 +220,15 @@
       <div class="row">
         <div class="title">
           <h2>Staff information</h2>
-          <!--<a href="javascript:;">Edit</a>-->
+          <a href="javascript:;" {{action 'btnEditClicked'}}>Edit</a>
         </div>
       </div>
+      {{#if isEditting}}
+        {{partial 'staff/edit'}}
+        <div class="row text-center">
+          <a href="#" class="button btn-add" {{action 'btnDoneClicked'}}>Done</a>
+        </div>
+      {{else}}
       <div class="row staff-info">
         <div class="large-5 columns">
           <div class="row">
@@ -297,6 +303,15 @@
               <span>{{joinedDate}}</span>
             </div>
           </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <span>Department: </span>
+            </div>
+            <div class="large-8 columns">
+              <span>{{department
+              }}</span>
+            </div>
+          </div>
         </div>
         <div class="large-4 columns">
           <div class="staff-photo">
@@ -304,8 +319,116 @@
           </div>
         </div>
       </div>
+      {{/if}}
     </div>
     <!-- End staff information Block -->
+  </script>
+
+  <script id="staff/_edit" type="text/x-handlebars">
+    <div class="row staff-info-add">
+      <div class="large-5 columns">
+        <form action="#">
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="fullname">Fullname: </label>
+            </div>
+            <div class="large-8 columns">
+              {{input value=fullName type="text" id="fullname" name="fullname" placeholder="Nguyen Thi Huyen Tran"}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="dateofbirth">Date of birth: </label>
+            </div>
+            <div class="large-8 columns">
+              {{input value=dateOfBirth type="text" id="dateofbirth"  name="dateofbirth" placeholder="21/04/1987"}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="dateofbirth">Gender: </label>
+            </div>
+            <div class="large-8 columns">
+              <input id="male" type="radio" value="Red" name="gender">
+              <label for="male">Male</label>
+              <input id="female" type="radio" value="Blue" name="gender">
+              <label for="female">Female</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="address">Address: </label>
+            </div>
+            <div class="large-8 columns">
+              {{input value=address type="text" id="address"  name="address" placeholder="10 Tran Quoc Toan, P7, Q3, TPHCM"}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="staffID">ID: </label>
+            </div>
+            <div class="large-8 columns">
+              {{input value=id type="text" id="staffID"  name="staffID" placeholder="371168456"}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="mobile">Mobile: </label>
+            </div>
+            <div class="large-8 columns">
+              {{input value=mobile type="text" id="mobile"  name="mobile" placeholder="01234 12 34 56"}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="skypeID">Skype: </label>
+            </div>
+            <div class="large-8 columns">
+              {{input value=skype type="text" id="skypeID"  name="skypeID" placeholder="sutrix.tran.nguyen"}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="email">Email: </label>
+            </div>
+            <div class="large-8 columns">
+              {{input value=email type="text" id="email"  name="email" placeholder="tran.nguyen@sutrixmedia.com"}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="joindate">Join Date: </label>
+            </div>
+            <div class="large-8 columns">
+              {{input value=joinedDate type="text" id="joindate"  name="joindate" placeholder="30/10/2010" }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <label >Department: </label>
+            </div>
+            <div class="large-8 columns">
+              <select style="margin-left: 0px">
+                <option >CHOOSE DEPARTMENT</option>
+                <option value="FrontEnd">FrontEnd</option>
+                <option value="Java">Java</option>
+                <option value="QC">QC</option>
+                <option value="Mobile">Mobile</option>
+                <option value="PHP">PHP</option>
+                <option value="Admin">Admin</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="large-3 columns">
+        <div class="staff-photo">
+          <img src="img/img-staff-no-photo.jpg" height="270" width="270" alt="Staff" />
+          <label for="type-photo" class="type-photo">Choose image<br />format available JPG, PNG, GIF</label>
+          <input type="file" name="type-photo" value="" id="type-photo">
+        </div>
+      </div>
+    </div>
   </script>
 
   <script id="staffs/new" type="text/x-handlebars">
@@ -394,6 +517,22 @@
                 {{input value=joinedDate type="text" id="joindate"  name="joindate" placeholder="30/10/2010" }}
               </div>
             </div>
+            <div class="row">
+              <div class="large-4 columns">
+                <label >Department: </label>
+              </div>
+              <div class="large-8 columns">
+                <select style="margin-left: 0px">
+                  <option >CHOOSE DEPARTMENT</option>
+                  <option value="FrontEnd">FrontEnd</option>
+                  <option value="Java">Java</option>
+                  <option value="QC">QC</option>
+                  <option value="Mobile">Mobile</option>
+                  <option value="PHP">PHP</option>
+                  <option value="Admin">Admin</option>
+                </select>
+              </div>
+            </div>
           </form>
         </div>
         <div class="large-3 columns">
@@ -418,9 +557,8 @@
             </div>
           </div>
           <div class="row text-center">
-            <div class="large-1 large-centered columns">
-              <a href="#" class="button btn-add" {{action add}}>Add</a>
-            </div>
+            <a href="#" class="button btn-add" {{action add}}>Add</a>
+            <a href="#" class="button btn-add" {{action cancel}}>Cancel</a>
           </div>
         </form>
       </div>
@@ -429,7 +567,7 @@
   </script>
 
   <script id="staffs/edit" type="text/x-handlebars">
-  <!-- staff information Block -->
+    <!-- staff information Block -->
     <div class="staff-info-block">
       <div class="row">
         <div class="title">
@@ -524,7 +662,7 @@
         </div>
       </div>
     </div>
-  <!-- End staff information Block -->
+    <!-- End staff information Block -->
 
     <!-- History -->
     <div class="history-block">

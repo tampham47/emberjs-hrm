@@ -2,7 +2,7 @@
 
 var staffs = [
   {
-    id: '1',
+    id: '69798999',
     fullName: 'Tâm Phạm',
     dateOfBirth: '01/01/1990',
     gender: 'Male',
@@ -15,7 +15,7 @@ var staffs = [
     department: 'Front-end'
   },
   {
-    id: '2',
+    id: '99117777',
     fullName: 'Soa Nguyễn',
     dateOfBirth: '05/11/1990',
     gender: 'Female',
@@ -28,11 +28,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '37112319',
     fullName: 'Tran Khac Anh Duc',
     dateOfBirth: '1990-04-17',
     gender: 'Male',
     address: '10 Tran Quoc Toan, P7, Q3, TPHCM',
-    id: '37112319',
     mobile: '0123-456-789',
     skype: 'sutrix.duc.tran',
     email: 'duc.tran@sutrixmedia.com',
@@ -41,11 +41,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '37112239',
     fullName: 'Pham Quoc Vinh',
     dateOfBirth: '1987-12-12',
     gender: 'Female',
     address: '23 Le Quy Don- Ha Noi',
-    id: '37112239',
     mobile: '0123-456-312',
     skype: 'sutrix.vinh.quoc',
     email: 'vinh.quoc@sutrixmedia.com',
@@ -54,11 +54,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '37134339',
     fullName: 'Nguyen Duc Chung',
     dateOfBirth: '1990-03-23',
     gender: 'Male',
     address: '23 Le Quy Don- Ha Dong',
-    id: '37134339',
     mobile: '0123-456-322',
     skype: 'chungCr',
     email: 'chungcr@gmail.com',
@@ -67,11 +67,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '54112419',
     fullName: 'Le Minh Chien',
     dateOfBirth: '1990-03-23',
     gender: 'Male',
     address: 'Viet Tri- Phu Tho',
-    id: '54112419',
     mobile: '0123-123-412',
     skype: 'leminh.xu',
     email: 'leminh.xu.hut@gmail.com',
@@ -80,11 +80,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '54112411',
     fullName: 'Nguyen Le Hoai Nam',
     dateOfBirth: '1990-03-23',
     gender: 'Female',
     address: 'Thanh Pho Ha Noi',
-    id: '54112411',
     mobile: '0123-123-411',
     skype: 'namhoai.le',
     email: 'namle.hut@gmail.com',
@@ -93,11 +93,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '54112412',
     fullName: 'Dinh Van Duc',
     dateOfBirth: '1990-03-23',
     gender: 'Female',
     address: 'TP Thai Binh- Thai Binh',
-    id: '54112412',
     mobile: '0123-123-413',
     skype: 'dinhvan.duc',
     email: 'dinhvan.duc.hut@gmail.com',
@@ -106,11 +106,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '54112413',
     fullName: 'Le Dinh Cuong',
     dateOfBirth: '1990-03-23',
     gender: 'Male',
     address: 'Ha Dong',
-    id: '54112413',
     mobile: '0123-123-412',
     skype: 'cuongle',
     email: 'cuongle.hut@gmail.com',
@@ -119,11 +119,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '54112414',
     fullName: 'Phan Dinh Phuong',
     dateOfBirth: '1990-03-23',
     gender: 'Male',
     address: 'TP Ha Tinh, Ha Tinh',
-    id: '54112414',
     mobile: '0123-123-232',
     skype: 'phuongphan.hut',
     email: 'phuongphan.hut@gmail.com',
@@ -132,11 +132,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '54112416',
     fullName: 'Pham Minh Tien',
     dateOfBirth: '1990-03-23',
     gender: 'Female',
     address: 'Duy Nhat - Thai Binh',
-    id: '54112416',
     mobile: '0123-153-412',
     skype: 'minhtien.hut',
     email: 'minhtien.hut@gmail.com',
@@ -145,11 +145,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '54112417',
     fullName: 'Nguyen Tien Minh',
     dateOfBirth: '1990-03-23',
     gender: 'Male',
     address: 'Ky Anh - Ha Tinh',
-    id: '54112417',
     mobile: '0123-123-412',
     skype: 'tienminh.hut',
     email: 'tienminh.hut@gmail.com',
@@ -158,11 +158,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '54112418',
     fullName: 'Nguyen Nhat Minh',
     dateOfBirth: '1990-03-23',
     gender: 'Male',
     address: 'Ha Dong',
-    id: '54112418',
     mobile: '0123-123-412',
     skype: 'leminh.xu',
     email: 'leminh.xu.hut@gmail.com',
@@ -171,11 +171,11 @@ var staffs = [
     department: 'Front-end'
   },
   {
+    id: '54112419',
     fullName: 'Do Van Kien',
     dateOfBirth: '1990-03-23',
     gender: 'Female',
     address: 'TP Thanh Hoa- Thanh Hoa',
-    id: '54112419',
     mobile: '0123-123-412',
     skype: 'kiendo.hut',
     email: 'kiendo.hut@gmail.com',

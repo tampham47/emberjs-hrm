@@ -14,8 +14,27 @@ var BLStaff = function() {
   };
 
   this.getById = function(id) {
-    return this.context;
+    var result = _.filter(this.context, function(item) {
+      return item.id == id;
+    });
+    return result[0] || null;
   };
+
+  this.filter = function(query, departmentId, limit) {
+    var result = _.filter(this.context, function(item, index) {
+      return ((item.fullName.toLowerCase().indexOf(query.toLowerCase()) >= 0) &
+        ((departmentId == null) || ((departmentId != null) & (item.department == departmentId))));
+    });
+
+    if (limit) {
+      var lResult = _.filter(result, function(item, index){
+        return index < limit;
+      });
+      return lResult;
+    }
+    else
+      return result;
+  }
 
   this.addNew = function(newItem) {
     this.context.push(newItem);
@@ -24,10 +43,17 @@ var BLStaff = function() {
   };
 
   this.update = function(id, data) {
-    return true;
+    this.remove(id);
+    data.id = id;
+    this.addNew(data);
+    return this.context;
   };
 
-  this.delete = function(id) {
+  this.remove = function(id) {
+    _.remove(this.context, function(item) {
+      return item.id == id;
+    });
+    save(this.context);
     return true;
   };
 };

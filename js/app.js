@@ -40,17 +40,14 @@ App.DashboardRoute = Ember.Route.extend({
 
 App.StaffsRoute = Ember.Route.extend({
   model: function() {
-    return blStaff.getAll();
+    return blStaff.filter('', null, 5);
   }
 });
 
 App.StaffRoute = Ember.Route.extend({
   model: function(params) {
     var staffId = params.staff_id;
-    var result = _.filter(blStaff.getAll(), function(item, i) {
-      return item.id == staffId;
-    });
-    return result[0] || null;
+    return blStaff.getById(staffId);
   },
   renderTemplate: function(params){
     var userId = params.content.id;
@@ -102,15 +99,28 @@ App.StaffsController = Ember.ObjectController.extend({
     filter: function() {
       var query = this.get('strQuery');
       var departmentId = this.get('departmentId');
-      var result = _.filter(blStaff.getAll(), function(item, index) {
-        return ((item.fullName.indexOf(query) >= 0) &
-          ((departmentId == null) || ((departmentId != null) & (item.department == departmentId))));
-      })
+      var result = blStaff.filter(query, departmentId, 5);
       this.set('model', result);
     },
     select: function(content) {
       console.log(content.id);
       this.transitionToRoute('staff', content);
+    }
+  }
+});
+
+App.StaffController = Ember.ObjectController.extend({
+  isEditting: false,
+  updateData: function() {
+    console.log('updateData');
+  },
+  actions: {
+    btnEditClicked: function() {
+      this.set('isEditting', true);
+    },
+    btnDoneClicked: function() {
+      this.updateData();
+      this.set('isEditting', false);
     }
   }
 });
@@ -134,6 +144,9 @@ App.StaffsNewController = Ember.ObjectController.extend({
         };
         blComment.addNew(newComment);
       // redirect to staffs page
+      this.transitionToRoute('staffs');
+    },
+    cancel: function() {
       this.transitionToRoute('staffs');
     }
   }
