@@ -64,61 +64,61 @@
       </dl>
     </div>
     <!-- dashboard Block -->
-      <div class="dashboard-block">
-        <div class="row">
-          <div class="medium-9 medium-centered columns">
-            <div class="chart-vertical">
-              <span>100 staff</span>
-              <span>90 staff</span>
-              <span>80 staff</span>
-              <span>70 staff</span>
-              <span>60 staff</span>
-              <span>50 staff</span>
-              <span>40 staff</span>
-              <span>30 staff</span>
-              <span>20 staff</span>
-              <span>10 staff</span>
-              <span>0 staff</span>
-            </div><!-- chart-vertical -->
-            <div class="chart-content">
-              <div class="inner-chart-content">
-                <div class="chart-item">
-                  <strong>80 staff</strong>
-                  <span style="height: 400px" id="staff-col">&nbsp;</span>
-                </div>
-                <div class="chart-item">
-                  <strong>50 staff</strong>
-                  <span style="height: 252px;">&nbsp;</span>
-                </div>
-                <div class="chart-item">
-                  <strong>32 staff</strong>
-                  <span style="height: 172px;">&nbsp;</span>
-                </div>
-                <div class="chart-item">
-                  <strong>52 staff</strong>
-                  <span style="height: 286px;">&nbsp;</span>
-                </div>
-                <div class="chart-item">
-                  <strong>42 staff</strong>
-                  <span style="height: 207px;">&nbsp;</span>
-                </div>
-                <div class="chart-item">
-                  <strong>5 staff</strong>
-                  <span style="height: 32px;">&nbsp;</span>
-                </div>
+    <div class="dashboard-block">
+      <div class="row">
+        <div class="medium-9 medium-centered columns">
+          <div class="chart-vertical">
+            <span>100 staff</span>
+            <span>90 staff</span>
+            <span>80 staff</span>
+            <span>70 staff</span>
+            <span>60 staff</span>
+            <span>50 staff</span>
+            <span>40 staff</span>
+            <span>30 staff</span>
+            <span>20 staff</span>
+            <span>10 staff</span>
+            <span>0 staff</span>
+          </div><!-- chart-vertical -->
+          <div data-name="dashboard-chart" class="chart-content">
+            <div class="inner-chart-content">
+              <div class="chart-item" data-dep="Front-end">
+                <strong>80 staff</strong>
+                <span style="height: 400px">&nbsp;</span>
               </div>
-            </div><!-- chart-content -->
-            <div class="chart-horizontal">
-              <span>Frontend</span>
-              <span>QC</span>
-              <span>Mobile</span>
-              <span>PHP</span>
-              <span>Java</span>
-              <span>Admin</span>
-            </div><!-- chart-vertical -->
-          </div>
+              <div class="chart-item qc" data-dep="QC">
+                <strong>50 staff</strong>
+                <span style="height: 252px;">&nbsp;</span>
+              </div>
+              <div class="chart-item mobile" data-dep="Mobile">
+                <strong>32 staff</strong>
+                <span style="height: 172px;">&nbsp;</span>
+              </div>
+              <div class="chart-item php" data-dep="PHP">
+                <strong>52 staff</strong>
+                <span style="height: 286px;">&nbsp;</span>
+              </div>
+              <div class="chart-item java" data-dep="Java">
+                <strong>42 staff</strong>
+                <span style="height: 207px;">&nbsp;</span>
+              </div>
+              <div class="chart-item admin" data-dep="Admin">
+                <strong>5 staff</strong>
+                <span style="height: 32px;">&nbsp;</span>
+              </div>
+            </div>
+          </div><!-- chart-content -->
+          <div class="chart-horizontal">
+            <span>Frontend</span>
+            <span>QC</span>
+            <span>Mobile</span>
+            <span>PHP</span>
+            <span>Java</span>
+            <span>Admin</span>
+          </div><!-- chart-vertical -->
         </div>
       </div>
+    </div>
     <!-- End dashboard Block -->
   </script>
 
@@ -155,15 +155,11 @@
                   <label >Department: </label>
                 </div>
                 <div class="medium-8 columns">
-                  <select>
-                    <option >CHOOSE DEPARTMENT</option>
-                    <option value="FrontEnd">FrontEnd</option>
-                    <option value="Java">Java</option>
-                    <option value="QC">QC</option>
-                    <option value="Mobile">Mobile</option>
-                    <option value="PHP">PHP</option>
-                    <option value="Admin">Admin</option>
-                  </select>
+                  {{view Ember.Select
+                    content=departmentList
+                    optionValuePath="content.id"
+                    optionLabelPath="content.name"
+                    selection=department}}
                 </div>
               </div>
               <div class="row text-center">
@@ -220,7 +216,11 @@
       <div class="row">
         <div class="title">
           <h2>Staff information</h2>
-          <a href="javascript:;" {{action 'btnEditClicked'}}>Edit</a>
+          {{#if isEditting}}
+            <a href="javascript:;" {{action 'cancelEdit'}}>Cancel</a>
+          {{else}}
+            <a href="javascript:;" {{action 'showEditForm'}}>Edit</a>
+          {{/if}}
         </div>
       </div>
       {{#if isEditting}}
@@ -308,8 +308,7 @@
               <span>Department: </span>
             </div>
             <div class="large-8 columns">
-              <span>{{department
-              }}</span>
+              <span>{{department}}</span>
             </div>
           </div>
         </div>
@@ -408,15 +407,11 @@
               <label >Department: </label>
             </div>
             <div class="large-8 columns">
-              <select style="margin-left: 0px">
-                <option >CHOOSE DEPARTMENT</option>
-                <option value="FrontEnd">FrontEnd</option>
-                <option value="Java">Java</option>
-                <option value="QC">QC</option>
-                <option value="Mobile">Mobile</option>
-                <option value="PHP">PHP</option>
-                <option value="Admin">Admin</option>
-              </select>
+              {{view Ember.Select
+                content=departmentList
+                optionValuePath="content.id"
+                optionLabelPath="content.name"
+                selection=departmentHolder}}
             </div>
           </div>
         </form>
@@ -522,15 +517,11 @@
                 <label >Department: </label>
               </div>
               <div class="large-8 columns">
-                <select style="margin-left: 0px">
-                  <option >CHOOSE DEPARTMENT</option>
-                  <option value="FrontEnd">FrontEnd</option>
-                  <option value="Java">Java</option>
-                  <option value="QC">QC</option>
-                  <option value="Mobile">Mobile</option>
-                  <option value="PHP">PHP</option>
-                  <option value="Admin">Admin</option>
-                </select>
+                {{view Ember.Select
+                  content=departmentList
+                  optionValuePath="content.id"
+                  optionLabelPath="content.name"
+                  selection=department}}
               </div>
             </div>
           </form>

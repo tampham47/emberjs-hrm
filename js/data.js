@@ -196,7 +196,8 @@ var comments = [
 ];
 
 var departmentList = [
-  { id: 'Frontend', name: 'Frontend' },
+  { id: null, name: 'CHOOSE DEPARTMENT' },
+  { id: 'Front-end', name: 'Front-end' },
   { id: 'PHP', name: 'PHP' },
   { id: 'Java', name: 'Java' },
   { id: 'QC', name: 'QC' },

@@ -45,9 +45,11 @@ var BLStaff = function() {
   };
 
   this.update = function(id, data) {
-    this.remove(id);
-    data.id = id;
-    this.addNew(data);
+    // rStaff is a reference to an item of this.context
+    // change rStaff value is change this.context value.
+    var rStaff = this.getById(id);
+    rStaff = data;
+    save(this.context);
     return this.context;
   };
 
@@ -76,7 +78,7 @@ var BLComment = function() {
 
   this.getByUser = function(userId) {
     var filterResult = _.filter(this.context, function(item, i) {
-      return item.userId == userId;
+      return (item == null) || (item.userId == userId);
     });
     return filterResult;
   };

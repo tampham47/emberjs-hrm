@@ -26,15 +26,24 @@ App.Router.map(function() {
 
 App.DashboardRoute = Ember.Route.extend({
   model: function(){
-    var model = [
-      {Frontend: 400},
-      {PHP: 252},
-      {Java: 172},
-      {QC: 286},
-      {Mobile: 207},
-      {Admin: 32}
-    ];
+    var model = {},
+      departmentId;
+    for (var i = 0; i < departmentList.length; i++) {
+      departmentId = departmentList[i].id;
+      if (departmentId != null)
+        model[departmentId] = blStaff.filter('', departmentId).length;
+    }
     return model;
+  },
+  setupController: function(controller, model) {
+    console.log('setupController');
+    console.log('header', $('#header'));
+    console.log('DashboardController', controller, model, $(document));
+    console.log('height', $('span', '[data-dep="Front-end"]').height());
+    $('span', '[data-dep="Front-end"]').css('height', '400px');
+  },
+  afterModel: function() {
+    console.log('afterModel');
   }
 });
 
@@ -54,7 +63,9 @@ App.StaffRoute = Ember.Route.extend({
     var controller = this.controllerFor('comments');
     controller.set('userId', userId);
 
+    // render staff template
     this.render();
+    // render comment template with exists data
     this.render('comments', {
       outlet: 'comments',
       userId: userId,
@@ -92,13 +103,25 @@ App.IndexController = Ember.ObjectController.extend({
   }
 });
 
+App.DashboardController = Ember.ObjectController.extend({
+  setupController: function(controller, model) {
+    console.log('setupController');
+    // console.log('header', $('#header'));
+    // console.log('DashboardController', controller, model, $(document));
+  }
+});
+
 App.StaffsController = Ember.ObjectController.extend({
   strQuery: '',
+  department: null,
   departmentId: null,
+  departmentList: departmentList,
   actions: {
     filter: function() {
+      console.log('departmentId', this.get('department').id);
+
       var query = this.get('strQuery'),
-        departmentId = this.get('departmentId'),
+        departmentId = this.get('department').id,
         result = blStaff.filter(query, departmentId, 5);
       this.set('model', result);
     },
@@ -111,27 +134,38 @@ App.StaffsController = Ember.ObjectController.extend({
 
 App.StaffController = Ember.ObjectController.extend({
   isEditting: false,
-  updateData: function() {
-    console.log('updateData');
+  departmentHolder: null,
+  departmentList: departmentList,
+  updateData: function(model) {
+    console.log('updateData', model);
+    return blStaff.update(model.id, model);
   },
   actions: {
-    btnEditClicked: function() {
+    showEditForm: function() {
       this.set('isEditting', true);
     },
     btnDoneClicked: function() {
-      this.updateData();
+      var model = this.get('model');
+      model.department = this.get('departmentHolder').id;
+      console.log('model', model);
+      this.updateData(model);
+      this.set('isEditting', false);
+    },
+    cancelEdit: function() {
       this.set('isEditting', false);
     }
   }
 });
 
 App.StaffsNewController = Ember.ObjectController.extend({
+  department: null,
+  departmentList: departmentList,
   actions: {
     add: function() {
       // add new staff
       var newItem = this.get('model');
       newItem.id = moment().format('X');
-      newItem.department = 'Frontend';
+      newItem.department = this.get('department').id;
       blStaff.addNew(newItem);
       // add new comment if it has values.
       if (newItem.comment != null)
